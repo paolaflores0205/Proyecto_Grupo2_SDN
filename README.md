@@ -9,3 +9,6 @@ Implementación VNRT de R1/R2: portal HTTPS, autenticación y sesiones, autoriza
 R5/Suricata siguen pendientes. No se incluyen contraseñas, claves privadas, certificados privados, cookies, datos MySQL, respaldos ni evidencias de usuarios. El JAR de Floodlight NO se sube al repositorio: antes de generar un despliegue, obtenerlo del paquete portable original o de la instalación autorizada en /opt/sdn-floodlight/floodlight.jar y colocarlo en despliegue-portable/vendor/floodlight.jar. Se conservan sus avisos de licencia. La instalación portable requiere adaptar IP, MAC, DPID, interfaces y puertos al destino.
 
 La instantánea no incluye configuraciones privadas de /etc ni datos de /var/lib. El paquete portable genera secretos y certificados nuevos. No se modificó el VNRT para esta exportación.
+
+## Datos ficticios para publicación
+Las IP de ejemplo utilizan redes de documentación 192.0.2.0/24, 198.51.100.0/24 y 203.0.113.0/24; MAC y DPID se sustituyeron por identificadores ficticios. No representan el VNRT actual. Deben reemplazarse con el inventario privado de cada destino. No usar estas direcciones para un despliegue real sin adaptación. Por esta sanitización, el contenido no es una copia byte a byte de los archivos originales. SHA256SUMS del paquete original no se incluye porque ya no correspondería a estos archivos.

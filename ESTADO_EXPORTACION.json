@@ -1,0 +1,21 @@
+{
+  "fecha": "2026-10-14",
+  "modo": "solo lectura",
+  "r5": "pendiente",
+  "errores_ssh": [
+    {
+      "node": "controller",
+      "error": "AttributeError: module 'paramiko' has no attribute 'SSHClient'"
+    },
+    {
+      "node": "h3",
+      "error": "AttributeError: module 'paramiko' has no attribute 'SSHClient'"
+    },
+    {
+      "node": "h4",
+      "error": "AttributeError: module 'paramiko' has no attribute 'SSHClient'"
+    }
+  ],
+  "archivos_captura_actual": 0,
+  "datos_de_red": "sustituidos por ejemplos ficticios"
+}
