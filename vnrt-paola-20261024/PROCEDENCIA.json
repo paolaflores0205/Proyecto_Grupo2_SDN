@@ -1,0 +1,294 @@
+[
+  {
+    "node": "controller",
+    "path": "controller/opt/sdn-admin-paso7/portable_context.py"
+  },
+  {
+    "node": "controller",
+    "path": "controller/opt/sdn-admin-paso7/portable_flows.py"
+  },
+  {
+    "node": "controller",
+    "path": "controller/opt/sdn-admin-paso7/portable_observe.py"
+  },
+  {
+    "node": "controller",
+    "path": "controller/opt/sdn-admin-paso7/vnrt_admin_paso7.py"
+  },
+  {
+    "node": "controller",
+    "path": "controller/opt/sdn-admin-paso7/vnrt_avz7_adapter.py"
+  },
+  {
+    "node": "controller",
+    "path": "controller/opt/sdn-admin-paso7/vnrt_avz7_admin.py"
+  },
+  {
+    "node": "controller",
+    "path": "controller/opt/sdn-admin-paso7/vnrt_avz7_portal.py"
+  },
+  {
+    "node": "controller",
+    "path": "controller/opt/sdn-admin-paso7/vnrt_avz7_red.py"
+  },
+  {
+    "node": "controller",
+    "path": "controller/opt/sdn-admin-paso7/vnrt_flujos_https_paso3.py"
+  },
+  {
+    "node": "controller",
+    "path": "controller/opt/sdn-admin-paso7/vnrt_lms_https_paso3.py"
+  },
+  {
+    "node": "controller",
+    "path": "controller/opt/sdn-admin-paso7/vnrt_notas_https_paso6.py"
+  },
+  {
+    "node": "controller",
+    "path": "controller/opt/sdn-admin-paso7/vnrt_portal_paso4.py"
+  },
+  {
+    "node": "controller",
+    "path": "controller/opt/sdn-admin-paso7/vnrt_portal_paso5.py"
+  },
+  {
+    "node": "controller",
+    "path": "controller/opt/sdn-admin-paso7/vnrt_r1_paso5.py"
+  },
+  {
+    "node": "controller",
+    "path": "controller/opt/sdn-admin-paso7/vnrt_recurso_administrativo.py"
+  },
+  {
+    "node": "controller",
+    "path": "controller/opt/sdn-admin-paso7/static/admin.css"
+  },
+  {
+    "node": "controller",
+    "path": "controller/opt/sdn-admin-paso7/templates/dashboard_avz7.html"
+  },
+  {
+    "node": "controller",
+    "path": "controller/opt/sdn-admin-paso7/templates/login.html"
+  },
+  {
+    "node": "controller",
+    "path": "controller/opt/sdn-admin-paso7/templates/message.html"
+  },
+  {
+    "node": "controller",
+    "path": "controller/opt/sdn-floodlight/portable_context.py"
+  },
+  {
+    "node": "controller",
+    "path": "controller/opt/sdn-floodlight/portable_flows.py"
+  },
+  {
+    "node": "controller",
+    "path": "controller/opt/sdn-floodlight/portable_observe.py"
+  },
+  {
+    "node": "controller",
+    "path": "controller/opt/sdn-floodlight/vnrt_admin_paso7.py"
+  },
+  {
+    "node": "controller",
+    "path": "controller/opt/sdn-floodlight/vnrt_avz7_adapter.py"
+  },
+  {
+    "node": "controller",
+    "path": "controller/opt/sdn-floodlight/vnrt_avz7_admin.py"
+  },
+  {
+    "node": "controller",
+    "path": "controller/opt/sdn-floodlight/vnrt_avz7_portal.py"
+  },
+  {
+    "node": "controller",
+    "path": "controller/opt/sdn-floodlight/vnrt_avz7_red.py"
+  },
+  {
+    "node": "controller",
+    "path": "controller/opt/sdn-floodlight/vnrt_flujos_https_paso3.py"
+  },
+  {
+    "node": "controller",
+    "path": "controller/opt/sdn-floodlight/vnrt_lms_https_paso3.py"
+  },
+  {
+    "node": "controller",
+    "path": "controller/opt/sdn-floodlight/vnrt_notas_https_paso6.py"
+  },
+  {
+    "node": "controller",
+    "path": "controller/opt/sdn-floodlight/vnrt_portal_paso4.py"
+  },
+  {
+    "node": "controller",
+    "path": "controller/opt/sdn-floodlight/vnrt_portal_paso5.py"
+  },
+  {
+    "node": "controller",
+    "path": "controller/opt/sdn-floodlight/vnrt_r1_paso5.py"
+  },
+  {
+    "node": "controller",
+    "path": "controller/opt/sdn-floodlight/vnrt_recurso_administrativo.py"
+  },
+  {
+    "node": "controller",
+    "path": "controller/opt/sdn-portal-paso4/portable_context.py"
+  },
+  {
+    "node": "controller",
+    "path": "controller/opt/sdn-portal-paso4/portable_flows.py"
+  },
+  {
+    "node": "controller",
+    "path": "controller/opt/sdn-portal-paso4/portable_observe.py"
+  },
+  {
+    "node": "controller",
+    "path": "controller/opt/sdn-portal-paso4/vnrt_admin_paso7.py"
+  },
+  {
+    "node": "controller",
+    "path": "controller/opt/sdn-portal-paso4/vnrt_avz7_adapter.py"
+  },
+  {
+    "node": "controller",
+    "path": "controller/opt/sdn-portal-paso4/vnrt_avz7_admin.py"
+  },
+  {
+    "node": "controller",
+    "path": "controller/opt/sdn-portal-paso4/vnrt_avz7_portal.py"
+  },
+  {
+    "node": "controller",
+    "path": "controller/opt/sdn-portal-paso4/vnrt_avz7_red.py"
+  },
+  {
+    "node": "controller",
+    "path": "controller/opt/sdn-portal-paso4/vnrt_flujos_https_paso3.py"
+  },
+  {
+    "node": "controller",
+    "path": "controller/opt/sdn-portal-paso4/vnrt_lms_https_paso3.py"
+  },
+  {
+    "node": "controller",
+    "path": "controller/opt/sdn-portal-paso4/vnrt_notas_https_paso6.py"
+  },
+  {
+    "node": "controller",
+    "path": "controller/opt/sdn-portal-paso4/vnrt_portal_paso4.py"
+  },
+  {
+    "node": "controller",
+    "path": "controller/opt/sdn-portal-paso4/vnrt_portal_paso5.py"
+  },
+  {
+    "node": "controller",
+    "path": "controller/opt/sdn-portal-paso4/vnrt_r1_paso5.py"
+  },
+  {
+    "node": "controller",
+    "path": "controller/opt/sdn-portal-paso4/vnrt_recurso_administrativo.py"
+  },
+  {
+    "node": "controller",
+    "path": "controller/opt/sdn-portal-paso4/static/portal.css"
+  },
+  {
+    "node": "controller",
+    "path": "controller/opt/sdn-portal-paso4/templates/error.html"
+  },
+  {
+    "node": "controller",
+    "path": "controller/opt/sdn-portal-paso4/templates/login.html"
+  },
+  {
+    "node": "controller",
+    "path": "controller/opt/sdn-portal-paso4/templates/panel.html"
+  },
+  {
+    "node": "controller",
+    "archive_sha256": "551ef043e3e89f01d51a729846fb8e806afbabd89f1ee5c3658566a1d4b0b55c",
+    "captured_utc": "2026-10-24T14:21:26.752037+00:00"
+  },
+  {
+    "node": "h1",
+    "path": "h1/etc/sdn-g2/smoke_test.py"
+  },
+  {
+    "node": "h1",
+    "path": "h1/home/ubuntu/medir_r1_concurrencia.py"
+  },
+  {
+    "node": "h1",
+    "path": "h1/home/ubuntu/medir_r1_continuidad_20261020.py"
+  },
+  {
+    "node": "h1",
+    "path": "h1/home/ubuntu/medir_r1_piloto_20261020.py"
+  },
+  {
+    "node": "h1",
+    "path": "h1/home/ubuntu/medir_r1_retiro_logout.py"
+  },
+  {
+    "node": "h1",
+    "archive_sha256": "8228f01f33b94c084c15745f07b431b67e9319bd2a8398d3a85cb8c0b605b6d6",
+    "captured_utc": "2026-10-24T20:42:25.905867+00:00"
+  },
+  {
+    "node": "h2",
+    "path": "h2/etc/sdn-g2/smoke_test.py"
+  },
+  {
+    "node": "h2",
+    "path": "h2/home/ubuntu/medir_r1_concurrencia.py"
+  },
+  {
+    "node": "h2",
+    "archive_sha256": "1f6e25d48fd1c0760c7195602178c85fad6577b396a055dacc95cfdc9f355e0c",
+    "captured_utc": "2026-10-24T20:44:11.378688+00:00"
+  },
+  {
+    "node": "h3",
+    "path": "h3/opt/sdn-lms-paso3/vnrt_lms_https_paso3.py"
+  },
+  {
+    "node": "h3",
+    "archive_sha256": "9ee35ae663cf32e0cc492413e00415ed6e1089009a697136f75b91390571ef16",
+    "captured_utc": "2026-10-24T14:25:12.388841+00:00"
+  },
+  {
+    "node": "h4",
+    "path": "h4/opt/sdn-notas-paso6/vnrt_notas_https_paso6.py"
+  },
+  {
+    "node": "h4",
+    "path": "h4/opt/sdn-notas-paso6/vnrt_recurso_administrativo.py"
+  },
+  {
+    "node": "h4",
+    "archive_sha256": "67486e7d721f85913f9106602bfb87dc9ea1e738d19c361dfc6567d6c59ff107",
+    "captured_utc": "2026-10-24T14:27:25.422437+00:00"
+  },
+  {
+    "node": "sw1",
+    "archive_sha256": "cab82864473e565d86d172f446d03c1ea25ce0db2f8fc40bb3d42fa3dde3783b",
+    "captured_utc": "2026-10-24T20:36:47.027055+00:00"
+  },
+  {
+    "node": "sw2",
+    "archive_sha256": "d698138350d43db2fce1d93a43291998685df3e154be0dde846bcc90193a99fe",
+    "captured_utc": "2026-10-24T20:39:05.479474+00:00"
+  },
+  {
+    "node": "sw3",
+    "archive_sha256": "44fa2bba8d21f062907881ff82234f247a6e906763efd2708dae662ccc9281f5",
+    "captured_utc": "2026-10-24T20:40:29.580316+00:00"
+  }
+]

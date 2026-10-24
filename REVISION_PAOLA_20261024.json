@@ -1,0 +1,485 @@
+{
+  "fecha": "2026-10-24",
+  "rama": "respaldo-paola-vnrt-20261024",
+  "origen": "ocho respaldos verificados; instalaci\u00f3n activa de Paola",
+  "privados_incluidos": false,
+  "direcciones": "ejemplos ficticios; las copias privadas permanecen exactas",
+  "despliegue_portable_original": "sin modificaciones",
+  "restauracion_ensayada": false,
+  "files": [
+    {
+      "path": "vnrt-paola-20261024/controller/opt/sdn-admin-paso7/portable_context.py",
+      "original_sha256": "f44b20886c5b4aefda62ede3b21418e28fce2d3e99cb721edae5388506c8d2b8",
+      "public_sha256": "f44b20886c5b4aefda62ede3b21418e28fce2d3e99cb721edae5388506c8d2b8",
+      "network_examples_changed": false
+    },
+    {
+      "path": "vnrt-paola-20261024/controller/opt/sdn-admin-paso7/portable_flows.py",
+      "original_sha256": "e1c238ee18afcb066e2041054ceab40700ea1fe0fdcfe01bbc7561f82b5bcd3e",
+      "public_sha256": "e1c238ee18afcb066e2041054ceab40700ea1fe0fdcfe01bbc7561f82b5bcd3e",
+      "network_examples_changed": false
+    },
+    {
+      "path": "vnrt-paola-20261024/controller/opt/sdn-admin-paso7/portable_observe.py",
+      "original_sha256": "847660539861b51498a1db945e712c9d1d880dab127a49a70ee25c190044c8b1",
+      "public_sha256": "847660539861b51498a1db945e712c9d1d880dab127a49a70ee25c190044c8b1",
+      "network_examples_changed": false
+    },
+    {
+      "path": "vnrt-paola-20261024/controller/opt/sdn-admin-paso7/static/admin.css",
+      "original_sha256": "211df4055cf93aa147a4f5c57f781511c57a192fba61e47f6608bc485122238e",
+      "public_sha256": "211df4055cf93aa147a4f5c57f781511c57a192fba61e47f6608bc485122238e",
+      "network_examples_changed": false
+    },
+    {
+      "path": "vnrt-paola-20261024/controller/opt/sdn-admin-paso7/templates/dashboard_avz7.html",
+      "original_sha256": "38aa66b9afdacb58661ce52356a4ac74316a94fad2f9406f054ad0b819835940",
+      "public_sha256": "38aa66b9afdacb58661ce52356a4ac74316a94fad2f9406f054ad0b819835940",
+      "network_examples_changed": false
+    },
+    {
+      "path": "vnrt-paola-20261024/controller/opt/sdn-admin-paso7/templates/login.html",
+      "original_sha256": "ec2129bed48272cdd9ee03e155be9356b904c62f844e2b9c685dfe47a59b4d1a",
+      "public_sha256": "ec2129bed48272cdd9ee03e155be9356b904c62f844e2b9c685dfe47a59b4d1a",
+      "network_examples_changed": false
+    },
+    {
+      "path": "vnrt-paola-20261024/controller/opt/sdn-admin-paso7/templates/message.html",
+      "original_sha256": "d78248e378c1ffd6865f2284fcaeb969549f819266304264d0c7bf1d45e68279",
+      "public_sha256": "d78248e378c1ffd6865f2284fcaeb969549f819266304264d0c7bf1d45e68279",
+      "network_examples_changed": false
+    },
+    {
+      "path": "vnrt-paola-20261024/controller/opt/sdn-admin-paso7/vnrt_admin_paso7.py",
+      "original_sha256": "39100d6ecac915bf89b3328f61b9062419813fa6c38d81524c8bc2b39760f0e6",
+      "public_sha256": "39100d6ecac915bf89b3328f61b9062419813fa6c38d81524c8bc2b39760f0e6",
+      "network_examples_changed": false
+    },
+    {
+      "path": "vnrt-paola-20261024/controller/opt/sdn-admin-paso7/vnrt_avz7_adapter.py",
+      "original_sha256": "e096a82777da19edc37e2837233e02c5540a7931f9f127c73f1ff6b9e2e9109d",
+      "public_sha256": "e096a82777da19edc37e2837233e02c5540a7931f9f127c73f1ff6b9e2e9109d",
+      "network_examples_changed": false
+    },
+    {
+      "path": "vnrt-paola-20261024/controller/opt/sdn-admin-paso7/vnrt_avz7_admin.py",
+      "original_sha256": "4b40a515a607ef35e0683141cd63e3520dec2ce14b622c73dc14ee5a811f6ef8",
+      "public_sha256": "4b40a515a607ef35e0683141cd63e3520dec2ce14b622c73dc14ee5a811f6ef8",
+      "network_examples_changed": false
+    },
+    {
+      "path": "vnrt-paola-20261024/controller/opt/sdn-admin-paso7/vnrt_avz7_portal.py",
+      "original_sha256": "439e766bad7baa07811014d3437e7a74eb50a690c8c465680f5d9ccc50a434da",
+      "public_sha256": "439e766bad7baa07811014d3437e7a74eb50a690c8c465680f5d9ccc50a434da",
+      "network_examples_changed": false
+    },
+    {
+      "path": "vnrt-paola-20261024/controller/opt/sdn-admin-paso7/vnrt_avz7_red.py",
+      "original_sha256": "104a4813c2216142fa33959ba3c7bc01c8b81f96723772f7879fb5dca43e5322",
+      "public_sha256": "104a4813c2216142fa33959ba3c7bc01c8b81f96723772f7879fb5dca43e5322",
+      "network_examples_changed": false
+    },
+    {
+      "path": "vnrt-paola-20261024/controller/opt/sdn-admin-paso7/vnrt_flujos_https_paso3.py",
+      "original_sha256": "f44b20886c5b4aefda62ede3b21418e28fce2d3e99cb721edae5388506c8d2b8",
+      "public_sha256": "f44b20886c5b4aefda62ede3b21418e28fce2d3e99cb721edae5388506c8d2b8",
+      "network_examples_changed": false
+    },
+    {
+      "path": "vnrt-paola-20261024/controller/opt/sdn-admin-paso7/vnrt_lms_https_paso3.py",
+      "original_sha256": "0e70f29f545ec813debf74936217bbe478a1f2b0a62bec3bdf8600fdd404a939",
+      "public_sha256": "d588117476e629342c8caa03538dad3f946f611b5b29b202473d19c15fa775a7",
+      "network_examples_changed": true
+    },
+    {
+      "path": "vnrt-paola-20261024/controller/opt/sdn-admin-paso7/vnrt_notas_https_paso6.py",
+      "original_sha256": "d4f021b28e37b25021973db6b52e01a437e9fecc72d664c54bb1b2682191de55",
+      "public_sha256": "eeb5c48bbd101f1ccf8094751153138ac4edf1016d34692a98207736839da986",
+      "network_examples_changed": true
+    },
+    {
+      "path": "vnrt-paola-20261024/controller/opt/sdn-admin-paso7/vnrt_portal_paso4.py",
+      "original_sha256": "45b040e409521ebec160b8b39fe9695c0fd1af1871df01824d442b81deb8a6f2",
+      "public_sha256": "45b040e409521ebec160b8b39fe9695c0fd1af1871df01824d442b81deb8a6f2",
+      "network_examples_changed": false
+    },
+    {
+      "path": "vnrt-paola-20261024/controller/opt/sdn-admin-paso7/vnrt_portal_paso5.py",
+      "original_sha256": "1020a601a0631c33b77b4297bb65701f21b5a4acc7d52e7e2d1154b017c6fe49",
+      "public_sha256": "1020a601a0631c33b77b4297bb65701f21b5a4acc7d52e7e2d1154b017c6fe49",
+      "network_examples_changed": false
+    },
+    {
+      "path": "vnrt-paola-20261024/controller/opt/sdn-admin-paso7/vnrt_r1_paso5.py",
+      "original_sha256": "fae8703d9d6e21d6b40628660ed14b5ce0e9b0fa00c7300a94e66078765ad45c",
+      "public_sha256": "fae8703d9d6e21d6b40628660ed14b5ce0e9b0fa00c7300a94e66078765ad45c",
+      "network_examples_changed": false
+    },
+    {
+      "path": "vnrt-paola-20261024/controller/opt/sdn-admin-paso7/vnrt_recurso_administrativo.py",
+      "original_sha256": "9e1eb7eb9a86a1b14192edd8ebd52ea26ed94745446d212fe2631f957ce40dd9",
+      "public_sha256": "942ca0f9d810d4db6aab18f8c2b7cddb2c42bbeaf6d1c80ad150e9b284f174c5",
+      "network_examples_changed": true
+    },
+    {
+      "path": "vnrt-paola-20261024/controller/opt/sdn-floodlight/portable_context.py",
+      "original_sha256": "f44b20886c5b4aefda62ede3b21418e28fce2d3e99cb721edae5388506c8d2b8",
+      "public_sha256": "f44b20886c5b4aefda62ede3b21418e28fce2d3e99cb721edae5388506c8d2b8",
+      "network_examples_changed": false
+    },
+    {
+      "path": "vnrt-paola-20261024/controller/opt/sdn-floodlight/portable_flows.py",
+      "original_sha256": "e1c238ee18afcb066e2041054ceab40700ea1fe0fdcfe01bbc7561f82b5bcd3e",
+      "public_sha256": "e1c238ee18afcb066e2041054ceab40700ea1fe0fdcfe01bbc7561f82b5bcd3e",
+      "network_examples_changed": false
+    },
+    {
+      "path": "vnrt-paola-20261024/controller/opt/sdn-floodlight/portable_observe.py",
+      "original_sha256": "847660539861b51498a1db945e712c9d1d880dab127a49a70ee25c190044c8b1",
+      "public_sha256": "847660539861b51498a1db945e712c9d1d880dab127a49a70ee25c190044c8b1",
+      "network_examples_changed": false
+    },
+    {
+      "path": "vnrt-paola-20261024/controller/opt/sdn-floodlight/vnrt_admin_paso7.py",
+      "original_sha256": "39100d6ecac915bf89b3328f61b9062419813fa6c38d81524c8bc2b39760f0e6",
+      "public_sha256": "39100d6ecac915bf89b3328f61b9062419813fa6c38d81524c8bc2b39760f0e6",
+      "network_examples_changed": false
+    },
+    {
+      "path": "vnrt-paola-20261024/controller/opt/sdn-floodlight/vnrt_avz7_adapter.py",
+      "original_sha256": "e096a82777da19edc37e2837233e02c5540a7931f9f127c73f1ff6b9e2e9109d",
+      "public_sha256": "e096a82777da19edc37e2837233e02c5540a7931f9f127c73f1ff6b9e2e9109d",
+      "network_examples_changed": false
+    },
+    {
+      "path": "vnrt-paola-20261024/controller/opt/sdn-floodlight/vnrt_avz7_admin.py",
+      "original_sha256": "4b40a515a607ef35e0683141cd63e3520dec2ce14b622c73dc14ee5a811f6ef8",
+      "public_sha256": "4b40a515a607ef35e0683141cd63e3520dec2ce14b622c73dc14ee5a811f6ef8",
+      "network_examples_changed": false
+    },
+    {
+      "path": "vnrt-paola-20261024/controller/opt/sdn-floodlight/vnrt_avz7_portal.py",
+      "original_sha256": "439e766bad7baa07811014d3437e7a74eb50a690c8c465680f5d9ccc50a434da",
+      "public_sha256": "439e766bad7baa07811014d3437e7a74eb50a690c8c465680f5d9ccc50a434da",
+      "network_examples_changed": false
+    },
+    {
+      "path": "vnrt-paola-20261024/controller/opt/sdn-floodlight/vnrt_avz7_red.py",
+      "original_sha256": "104a4813c2216142fa33959ba3c7bc01c8b81f96723772f7879fb5dca43e5322",
+      "public_sha256": "104a4813c2216142fa33959ba3c7bc01c8b81f96723772f7879fb5dca43e5322",
+      "network_examples_changed": false
+    },
+    {
+      "path": "vnrt-paola-20261024/controller/opt/sdn-floodlight/vnrt_flujos_https_paso3.py",
+      "original_sha256": "f44b20886c5b4aefda62ede3b21418e28fce2d3e99cb721edae5388506c8d2b8",
+      "public_sha256": "f44b20886c5b4aefda62ede3b21418e28fce2d3e99cb721edae5388506c8d2b8",
+      "network_examples_changed": false
+    },
+    {
+      "path": "vnrt-paola-20261024/controller/opt/sdn-floodlight/vnrt_lms_https_paso3.py",
+      "original_sha256": "0e70f29f545ec813debf74936217bbe478a1f2b0a62bec3bdf8600fdd404a939",
+      "public_sha256": "d588117476e629342c8caa03538dad3f946f611b5b29b202473d19c15fa775a7",
+      "network_examples_changed": true
+    },
+    {
+      "path": "vnrt-paola-20261024/controller/opt/sdn-floodlight/vnrt_notas_https_paso6.py",
+      "original_sha256": "d4f021b28e37b25021973db6b52e01a437e9fecc72d664c54bb1b2682191de55",
+      "public_sha256": "eeb5c48bbd101f1ccf8094751153138ac4edf1016d34692a98207736839da986",
+      "network_examples_changed": true
+    },
+    {
+      "path": "vnrt-paola-20261024/controller/opt/sdn-floodlight/vnrt_portal_paso4.py",
+      "original_sha256": "45b040e409521ebec160b8b39fe9695c0fd1af1871df01824d442b81deb8a6f2",
+      "public_sha256": "45b040e409521ebec160b8b39fe9695c0fd1af1871df01824d442b81deb8a6f2",
+      "network_examples_changed": false
+    },
+    {
+      "path": "vnrt-paola-20261024/controller/opt/sdn-floodlight/vnrt_portal_paso5.py",
+      "original_sha256": "1020a601a0631c33b77b4297bb65701f21b5a4acc7d52e7e2d1154b017c6fe49",
+      "public_sha256": "1020a601a0631c33b77b4297bb65701f21b5a4acc7d52e7e2d1154b017c6fe49",
+      "network_examples_changed": false
+    },
+    {
+      "path": "vnrt-paola-20261024/controller/opt/sdn-floodlight/vnrt_r1_paso5.py",
+      "original_sha256": "fae8703d9d6e21d6b40628660ed14b5ce0e9b0fa00c7300a94e66078765ad45c",
+      "public_sha256": "fae8703d9d6e21d6b40628660ed14b5ce0e9b0fa00c7300a94e66078765ad45c",
+      "network_examples_changed": false
+    },
+    {
+      "path": "vnrt-paola-20261024/controller/opt/sdn-floodlight/vnrt_recurso_administrativo.py",
+      "original_sha256": "9e1eb7eb9a86a1b14192edd8ebd52ea26ed94745446d212fe2631f957ce40dd9",
+      "public_sha256": "942ca0f9d810d4db6aab18f8c2b7cddb2c42bbeaf6d1c80ad150e9b284f174c5",
+      "network_examples_changed": true
+    },
+    {
+      "path": "vnrt-paola-20261024/controller/opt/sdn-portal-paso4/portable_context.py",
+      "original_sha256": "f44b20886c5b4aefda62ede3b21418e28fce2d3e99cb721edae5388506c8d2b8",
+      "public_sha256": "f44b20886c5b4aefda62ede3b21418e28fce2d3e99cb721edae5388506c8d2b8",
+      "network_examples_changed": false
+    },
+    {
+      "path": "vnrt-paola-20261024/controller/opt/sdn-portal-paso4/portable_flows.py",
+      "original_sha256": "e1c238ee18afcb066e2041054ceab40700ea1fe0fdcfe01bbc7561f82b5bcd3e",
+      "public_sha256": "e1c238ee18afcb066e2041054ceab40700ea1fe0fdcfe01bbc7561f82b5bcd3e",
+      "network_examples_changed": false
+    },
+    {
+      "path": "vnrt-paola-20261024/controller/opt/sdn-portal-paso4/portable_observe.py",
+      "original_sha256": "847660539861b51498a1db945e712c9d1d880dab127a49a70ee25c190044c8b1",
+      "public_sha256": "847660539861b51498a1db945e712c9d1d880dab127a49a70ee25c190044c8b1",
+      "network_examples_changed": false
+    },
+    {
+      "path": "vnrt-paola-20261024/controller/opt/sdn-portal-paso4/static/portal.css",
+      "original_sha256": "065f6d3a2f1bfd9326111a3da8ee5488ed01bd9cda6700d623d2148f713ae7cb",
+      "public_sha256": "065f6d3a2f1bfd9326111a3da8ee5488ed01bd9cda6700d623d2148f713ae7cb",
+      "network_examples_changed": false
+    },
+    {
+      "path": "vnrt-paola-20261024/controller/opt/sdn-portal-paso4/templates/error.html",
+      "original_sha256": "152c86c45b7e8e3330a650ecf3c449d78c84bdb142c8049f7a5decacebfe5128",
+      "public_sha256": "152c86c45b7e8e3330a650ecf3c449d78c84bdb142c8049f7a5decacebfe5128",
+      "network_examples_changed": false
+    },
+    {
+      "path": "vnrt-paola-20261024/controller/opt/sdn-portal-paso4/templates/login.html",
+      "original_sha256": "9b29cdc06b6082ad12f38d010341fc1b468308154b1305738cdc1d844167d211",
+      "public_sha256": "9b29cdc06b6082ad12f38d010341fc1b468308154b1305738cdc1d844167d211",
+      "network_examples_changed": false
+    },
+    {
+      "path": "vnrt-paola-20261024/controller/opt/sdn-portal-paso4/templates/panel.html",
+      "original_sha256": "0cbc170dda9b20249138b70c121ae7e42bca2937e541a9923f2546e8dd5193a8",
+      "public_sha256": "0cbc170dda9b20249138b70c121ae7e42bca2937e541a9923f2546e8dd5193a8",
+      "network_examples_changed": false
+    },
+    {
+      "path": "vnrt-paola-20261024/controller/opt/sdn-portal-paso4/vnrt_admin_paso7.py",
+      "original_sha256": "39100d6ecac915bf89b3328f61b9062419813fa6c38d81524c8bc2b39760f0e6",
+      "public_sha256": "39100d6ecac915bf89b3328f61b9062419813fa6c38d81524c8bc2b39760f0e6",
+      "network_examples_changed": false
+    },
+    {
+      "path": "vnrt-paola-20261024/controller/opt/sdn-portal-paso4/vnrt_avz7_adapter.py",
+      "original_sha256": "e3394b81ee7043b097431116d98b6b18972444a8d0aa847f2db97fd11cf967b4",
+      "public_sha256": "e3394b81ee7043b097431116d98b6b18972444a8d0aa847f2db97fd11cf967b4",
+      "network_examples_changed": false
+    },
+    {
+      "path": "vnrt-paola-20261024/controller/opt/sdn-portal-paso4/vnrt_avz7_admin.py",
+      "original_sha256": "4b40a515a607ef35e0683141cd63e3520dec2ce14b622c73dc14ee5a811f6ef8",
+      "public_sha256": "4b40a515a607ef35e0683141cd63e3520dec2ce14b622c73dc14ee5a811f6ef8",
+      "network_examples_changed": false
+    },
+    {
+      "path": "vnrt-paola-20261024/controller/opt/sdn-portal-paso4/vnrt_avz7_portal.py",
+      "original_sha256": "439e766bad7baa07811014d3437e7a74eb50a690c8c465680f5d9ccc50a434da",
+      "public_sha256": "439e766bad7baa07811014d3437e7a74eb50a690c8c465680f5d9ccc50a434da",
+      "network_examples_changed": false
+    },
+    {
+      "path": "vnrt-paola-20261024/controller/opt/sdn-portal-paso4/vnrt_avz7_red.py",
+      "original_sha256": "104a4813c2216142fa33959ba3c7bc01c8b81f96723772f7879fb5dca43e5322",
+      "public_sha256": "104a4813c2216142fa33959ba3c7bc01c8b81f96723772f7879fb5dca43e5322",
+      "network_examples_changed": false
+    },
+    {
+      "path": "vnrt-paola-20261024/controller/opt/sdn-portal-paso4/vnrt_flujos_https_paso3.py",
+      "original_sha256": "f44b20886c5b4aefda62ede3b21418e28fce2d3e99cb721edae5388506c8d2b8",
+      "public_sha256": "f44b20886c5b4aefda62ede3b21418e28fce2d3e99cb721edae5388506c8d2b8",
+      "network_examples_changed": false
+    },
+    {
+      "path": "vnrt-paola-20261024/controller/opt/sdn-portal-paso4/vnrt_lms_https_paso3.py",
+      "original_sha256": "0e70f29f545ec813debf74936217bbe478a1f2b0a62bec3bdf8600fdd404a939",
+      "public_sha256": "d588117476e629342c8caa03538dad3f946f611b5b29b202473d19c15fa775a7",
+      "network_examples_changed": true
+    },
+    {
+      "path": "vnrt-paola-20261024/controller/opt/sdn-portal-paso4/vnrt_notas_https_paso6.py",
+      "original_sha256": "d4f021b28e37b25021973db6b52e01a437e9fecc72d664c54bb1b2682191de55",
+      "public_sha256": "eeb5c48bbd101f1ccf8094751153138ac4edf1016d34692a98207736839da986",
+      "network_examples_changed": true
+    },
+    {
+      "path": "vnrt-paola-20261024/controller/opt/sdn-portal-paso4/vnrt_portal_paso4.py",
+      "original_sha256": "45b040e409521ebec160b8b39fe9695c0fd1af1871df01824d442b81deb8a6f2",
+      "public_sha256": "45b040e409521ebec160b8b39fe9695c0fd1af1871df01824d442b81deb8a6f2",
+      "network_examples_changed": false
+    },
+    {
+      "path": "vnrt-paola-20261024/controller/opt/sdn-portal-paso4/vnrt_portal_paso5.py",
+      "original_sha256": "1020a601a0631c33b77b4297bb65701f21b5a4acc7d52e7e2d1154b017c6fe49",
+      "public_sha256": "1020a601a0631c33b77b4297bb65701f21b5a4acc7d52e7e2d1154b017c6fe49",
+      "network_examples_changed": false
+    },
+    {
+      "path": "vnrt-paola-20261024/controller/opt/sdn-portal-paso4/vnrt_r1_paso5.py",
+      "original_sha256": "be35065b83da7233352f501b8caaa7bf6f839335a30c4aaef5fc1230297300b8",
+      "public_sha256": "be35065b83da7233352f501b8caaa7bf6f839335a30c4aaef5fc1230297300b8",
+      "network_examples_changed": false
+    },
+    {
+      "path": "vnrt-paola-20261024/controller/opt/sdn-portal-paso4/vnrt_recurso_administrativo.py",
+      "original_sha256": "9e1eb7eb9a86a1b14192edd8ebd52ea26ed94745446d212fe2631f957ce40dd9",
+      "public_sha256": "942ca0f9d810d4db6aab18f8c2b7cddb2c42bbeaf6d1c80ad150e9b284f174c5",
+      "network_examples_changed": true
+    },
+    {
+      "path": "vnrt-paola-20261024/h1/etc/sdn-g2/smoke_test.py",
+      "original_sha256": "709a2925902e75ba684c07ef6fb4fddadddcde9baa215fccb00a34bab33bc6ea",
+      "public_sha256": "709a2925902e75ba684c07ef6fb4fddadddcde9baa215fccb00a34bab33bc6ea",
+      "network_examples_changed": false
+    },
+    {
+      "path": "vnrt-paola-20261024/h1/home/ubuntu/medir_r1_concurrencia.py",
+      "original_sha256": "5561fa0e0563847696414b17cad86cb720a9c0600c4583fb5b0e528f92479d30",
+      "public_sha256": "5561fa0e0563847696414b17cad86cb720a9c0600c4583fb5b0e528f92479d30",
+      "network_examples_changed": false
+    },
+    {
+      "path": "vnrt-paola-20261024/h1/home/ubuntu/medir_r1_continuidad_20261020.py",
+      "original_sha256": "810c3ab16fcdce685ae8bd4a541c20713178da617822beb74506bb6ca325fe2a",
+      "public_sha256": "810c3ab16fcdce685ae8bd4a541c20713178da617822beb74506bb6ca325fe2a",
+      "network_examples_changed": false
+    },
+    {
+      "path": "vnrt-paola-20261024/h1/home/ubuntu/medir_r1_piloto_20261020.py",
+      "original_sha256": "3f4ebc34755c0583aded1ac450f6990096fd5676fb3e0908eca32e0691585323",
+      "public_sha256": "3f4ebc34755c0583aded1ac450f6990096fd5676fb3e0908eca32e0691585323",
+      "network_examples_changed": false
+    },
+    {
+      "path": "vnrt-paola-20261024/h1/home/ubuntu/medir_r1_retiro_logout.py",
+      "original_sha256": "6d126163c880d1e6e31cf9ee87e9cb7770e440562ea8d64fe93a01ae45da1a99",
+      "public_sha256": "6d126163c880d1e6e31cf9ee87e9cb7770e440562ea8d64fe93a01ae45da1a99",
+      "network_examples_changed": false
+    },
+    {
+      "path": "vnrt-paola-20261024/h2/etc/sdn-g2/smoke_test.py",
+      "original_sha256": "709a2925902e75ba684c07ef6fb4fddadddcde9baa215fccb00a34bab33bc6ea",
+      "public_sha256": "709a2925902e75ba684c07ef6fb4fddadddcde9baa215fccb00a34bab33bc6ea",
+      "network_examples_changed": false
+    },
+    {
+      "path": "vnrt-paola-20261024/h2/home/ubuntu/medir_r1_concurrencia.py",
+      "original_sha256": "5561fa0e0563847696414b17cad86cb720a9c0600c4583fb5b0e528f92479d30",
+      "public_sha256": "5561fa0e0563847696414b17cad86cb720a9c0600c4583fb5b0e528f92479d30",
+      "network_examples_changed": false
+    },
+    {
+      "path": "vnrt-paola-20261024/h3/opt/sdn-lms-paso3/vnrt_lms_https_paso3.py",
+      "original_sha256": "0e70f29f545ec813debf74936217bbe478a1f2b0a62bec3bdf8600fdd404a939",
+      "public_sha256": "d588117476e629342c8caa03538dad3f946f611b5b29b202473d19c15fa775a7",
+      "network_examples_changed": true
+    },
+    {
+      "path": "vnrt-paola-20261024/h4/opt/sdn-notas-paso6/vnrt_notas_https_paso6.py",
+      "original_sha256": "d4f021b28e37b25021973db6b52e01a437e9fecc72d664c54bb1b2682191de55",
+      "public_sha256": "eeb5c48bbd101f1ccf8094751153138ac4edf1016d34692a98207736839da986",
+      "network_examples_changed": true
+    },
+    {
+      "path": "vnrt-paola-20261024/h4/opt/sdn-notas-paso6/vnrt_recurso_administrativo.py",
+      "original_sha256": "9e1eb7eb9a86a1b14192edd8ebd52ea26ed94745446d212fe2631f957ce40dd9",
+      "public_sha256": "942ca0f9d810d4db6aab18f8c2b7cddb2c42bbeaf6d1c80ad150e9b284f174c5",
+      "network_examples_changed": true
+    },
+    {
+      "path": "vnrt-paola-20261024/INTEGRACION_CON_MATTHEW.md",
+      "original_sha256": "102adcce7df34b6d4fdf7a164bee30824cb82128a5b8d5da816b47e72c51f9b7",
+      "public_sha256": "102adcce7df34b6d4fdf7a164bee30824cb82128a5b8d5da816b47e72c51f9b7",
+      "network_examples_changed": false
+    },
+    {
+      "path": "vnrt-paola-20261024/LEER_ANTES_DE_PUBLICAR.md",
+      "original_sha256": "1c1801b254eb897a3f662d77a9a39f993ff403fb83cf117394e98d354d110c03",
+      "public_sha256": "1c1801b254eb897a3f662d77a9a39f993ff403fb83cf117394e98d354d110c03",
+      "network_examples_changed": false
+    },
+    {
+      "path": "vnrt-paola-20261024/PROCEDENCIA.json",
+      "original_sha256": "286893e3775c6d0e54d8bf82ef190807d4b21913e119476f13a4a49906326f88",
+      "public_sha256": "286893e3775c6d0e54d8bf82ef190807d4b21913e119476f13a4a49906326f88",
+      "network_examples_changed": false
+    },
+    {
+      "path": "docs/paola/01_Estado_del_proyecto_y_decisiones.md",
+      "original_sha256": "bcda8f353af64853ed51d65374a6e107ca28ca4a1cf1830b174ebf2dad399695",
+      "public_sha256": "bcd690d5dd1beef8a46f6be6c2a20f87b7dabec21575b4e56173b623bd7a1a37",
+      "network_examples_changed": true
+    },
+    {
+      "path": "docs/paola/02_Respaldo_privado_antes_de_Lab5.md",
+      "original_sha256": "4778d8b82fe5a5e7dafc617905768f2f2deb6d70284f12963e6d094d524cdca2",
+      "public_sha256": "e21459fd810b4b1ac59eb46ef10afd754dba2bf0284a315a3db9f3c2b274d0a0",
+      "network_examples_changed": true
+    },
+    {
+      "path": "docs/paola/03_Git_y_push_manual.md",
+      "original_sha256": "c0ce5d4379a308e83a54bf30a1262da22c387a389ce59d5072d6968b6a0a294c",
+      "public_sha256": "c0ce5d4379a308e83a54bf30a1262da22c387a389ce59d5072d6968b6a0a294c",
+      "network_examples_changed": false
+    },
+    {
+      "path": "docs/paola/04_Pausar_proyecto_para_Lab5.md",
+      "original_sha256": "113a0a8cb88db454229a13b951c6834bd6f56ac77c6111748f78411a7638e606",
+      "public_sha256": "4dc282558d698c0751083b7a7260f7e127cd1699410a5846c9d98449e2fbd9b0",
+      "network_examples_changed": true
+    },
+    {
+      "path": "docs/paola/05_Restaurar_y_activar_el_proyecto.md",
+      "original_sha256": "dd3d3ce346184e5110a45e42ca05a3f387377293ffe1321f5ca6e81419eb9e63",
+      "public_sha256": "2dc2cd05a75235402c5ed93b6b46e0559d23a7446514c81158890fa148f45468",
+      "network_examples_changed": true
+    },
+    {
+      "path": "docs/paola/06_Detalle_multitable_y_mejoras.md",
+      "original_sha256": "5f92e912d666b4d99a688e325636da37edd0e8d6f71b0bb388dbaba882880a99",
+      "public_sha256": "5f92e912d666b4d99a688e325636da37edd0e8d6f71b0bb388dbaba882880a99",
+      "network_examples_changed": false
+    },
+    {
+      "path": "docs/paola/07_Avance_respaldo_y_pendientes_20261024.md",
+      "original_sha256": "2d0f7bca7f65c98a8d79260a4180a275e9877ef5043a0c7e7986f602689dd084",
+      "public_sha256": "2d0f7bca7f65c98a8d79260a4180a275e9877ef5043a0c7e7986f602689dd084",
+      "network_examples_changed": false
+    },
+    {
+      "path": "docs/paola/README.md",
+      "original_sha256": "f924de761e91a427229d25632d715ace654233876abe968c46b28ed86ca7c98e",
+      "public_sha256": "f924de761e91a427229d25632d715ace654233876abe968c46b28ed86ca7c98e",
+      "network_examples_changed": false
+    },
+    {
+      "path": "docs/paola/scripts/autoprueba_local.py",
+      "original_sha256": "0cb0009a0803313d1772b0dd2269dea6ab43e786bf3f8a60acd195dd24f862de",
+      "public_sha256": "0cb0009a0803313d1772b0dd2269dea6ab43e786bf3f8a60acd195dd24f862de",
+      "network_examples_changed": false
+    },
+    {
+      "path": "docs/paola/scripts/datos_cliente_lab5.py",
+      "original_sha256": "63c14411ba13e6b359d878f73ccf826271626c3c5c380827a52cce1fdd3e5c3e",
+      "public_sha256": "63c14411ba13e6b359d878f73ccf826271626c3c5c380827a52cce1fdd3e5c3e",
+      "network_examples_changed": false
+    },
+    {
+      "path": "docs/paola/scripts/exportar_codigo.py",
+      "original_sha256": "4c8acc4e7f96c65dcdeb859a4ee65bfa7bcaad47427f504f3aed54e514cd33fe",
+      "public_sha256": "4c8acc4e7f96c65dcdeb859a4ee65bfa7bcaad47427f504f3aed54e514cd33fe",
+      "network_examples_changed": false
+    },
+    {
+      "path": "docs/paola/scripts/respaldar_nodo.py",
+      "original_sha256": "b6964d5bc0181be36e1b95969ddd3c54a17cd8bccb2aa8010b77461dba354b20",
+      "public_sha256": "b6964d5bc0181be36e1b95969ddd3c54a17cd8bccb2aa8010b77461dba354b20",
+      "network_examples_changed": false
+    },
+    {
+      "path": "docs/paola/scripts/verificar_respaldos.py",
+      "original_sha256": "ca979cda3e7b4b6d11d0bd85d99eb010a4e703f2b94992d91922475639c81b2b",
+      "public_sha256": "ca979cda3e7b4b6d11d0bd85d99eb010a4e703f2b94992d91922475639c81b2b",
+      "network_examples_changed": false
+    }
+  ]
+}

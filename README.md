@@ -1,3 +1,22 @@
+# Proyecto Grupo 2 SDN
+
+## Avance VNRT de Paola al 24 de octubre
+
+- `vnrt-paola-20261024/`: código de la instalación multitabla respaldada en Paola. Se conservan rutas por nodo para reconocer qué copia ejecutaba cada servicio. No es un instalador ni una actualización automática para otro slice.
+- `docs/paola/LEER_PRIMERO_EN_GIT.md`: avances, decisiones, mejoras futuras, respaldo, pausa para Lab5 y recuperación. Los identificadores de red son ejemplos ficticios; el inventario y los secretos reales permanecen fuera de Git.
+- `REVISION_PAOLA_20261024.json`: procedencia y hashes de los archivos preparados.
+- `despliegue-portable/`: paquete histórico de tabla única del 10/10. Se conserva sin cambios y no contiene las correcciones posteriores. No usarlo como instalador actualizado de la versión multitabla.
+
+Las pruebas de Paola incluyen activación, continuidad, logout, revocación, vencimiento, cuenta deshabilitada, discrepancia controlada y dos clientes concurrentes. No demuestran capacidad máxima, rendimiento de TCAM ni superioridad frente a tabla única. R5 y las mejoras de políticas compartidas no se declaran completados.
+
+El proyecto continuará en Matthew. Antes de aplicar estos archivos, comparar su versión R2 y adaptar inventario, dependencias y ciclo de vida de reglas. No reemplazar todo el código de Matthew con esta copia. Un pull solo descarga archivos.
+
+La copia real del código recuperado se conserva en el workspace privado. Aquí se sustituyen IP/MAC/DPID conocidos por ejemplos, por lo que algunos archivos publicados no coinciden byte a byte con el respaldo. No se incluyen dump SQL, config.json, claves, tar.gz ni JAR de Floodlight. La restauración integral aún no se ha ensayado.
+
+## Registro histórico anterior
+
+El bloque siguiente corresponde al paquete original y su exportación anterior. `ESTADO_EXPORTACION.json` conserva ese registro de 2026-10-14; no describe el nuevo respaldo de ocho nodos.
+
 # Proyecto Grupo 2 SDN — código del parcial
 
 Implementación VNRT de R1/R2: portal HTTPS, autenticación y sesiones, autorización por rol, aplicación Python, administración DTI, MySQL, Kea DHCP, Floodlight y OVS/OpenFlow 1.3.

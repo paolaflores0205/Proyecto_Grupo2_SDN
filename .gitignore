@@ -6,3 +6,15 @@ __pycache__/
 usuarios-prueba.json
 topology.json
 generated-*/
+
+# Respaldo y configuración privada VNRT (Paola 24/10)
+**/Respaldos_privados_VNRT/
+*.tar.gz
+*.tar.gz.sha256
+*.partial
+**/config.json
+**/private/
+**/credenciales-dti.json
+**/sdn_g2.sql
+**/mysql-app-users.sql
+**/.env.*
