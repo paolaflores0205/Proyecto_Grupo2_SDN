@@ -1,0 +1,103 @@
+{
+  "confirmed_after_inventory": false,
+  "ssh": {
+    "host": "CHANGE_ME",
+    "user": "ubuntu",
+    "ports": {
+      "controller": 5800,
+      "sw1": 5801,
+      "sw2": 5802,
+      "sw3": 5803,
+      "h1": 5811,
+      "h2": 5812,
+      "h3": 5813,
+      "h4": 5814
+    }
+  },
+  "data_cidr": "192.0.2.0/24",
+  "controller_management_ip": "198.51.100.10",
+  "nodes": {
+    "controller": {
+      "management_interface": "ens3",
+      "data_interface": "ens4",
+      "ip": "192.0.2.10",
+      "mac": "02:00:00:00:00:01",
+      "switch": "sw1",
+      "port": 1
+    },
+    "h1": {
+      "management_interface": "ens3",
+      "data_interface": "ens4",
+      "ip": "192.0.2.1",
+      "mac": "02:00:00:00:00:02",
+      "switch": "sw2",
+      "port": 2
+    },
+    "h2": {
+      "management_interface": "ens3",
+      "data_interface": "ens4",
+      "ip": "192.0.2.2",
+      "mac": "02:00:00:00:00:03",
+      "switch": "sw2",
+      "port": 3
+    },
+    "h3": {
+      "management_interface": "ens3",
+      "data_interface": "ens4",
+      "ip": "192.0.2.101",
+      "mac": "02:00:00:00:00:04",
+      "switch": "sw3",
+      "port": 2
+    },
+    "h4": {
+      "management_interface": "ens3",
+      "data_interface": "ens4",
+      "ip": "192.0.2.102",
+      "mac": "02:00:00:00:00:05",
+      "switch": "sw3",
+      "port": 1
+    }
+  },
+  "switches": {
+    "sw1": {
+      "bridge": "sw1",
+      "management_interface": "ens3",
+      "dpid": "00:00:00:00:00:00:00:01",
+      "ports": {
+        "1": "ens4",
+        "2": "ens5",
+        "3": "ens6"
+      },
+      "links": {
+        "sw2": 2,
+        "sw3": 3
+      }
+    },
+    "sw2": {
+      "bridge": "sw2",
+      "management_interface": "ens3",
+      "dpid": "00:00:00:00:00:00:00:02",
+      "ports": {
+        "1": "ens4",
+        "2": "ens5",
+        "3": "ens6"
+      },
+      "links": {
+        "sw1": 1
+      }
+    },
+    "sw3": {
+      "bridge": "sw3",
+      "management_interface": "ens3",
+      "dpid": "00:00:00:00:00:00:00:03",
+      "ports": {
+        "1": "ens4",
+        "2": "ens5",
+        "3": "ens6"
+      },
+      "links": {
+        "sw1": 3
+      }
+    }
+  }
+}

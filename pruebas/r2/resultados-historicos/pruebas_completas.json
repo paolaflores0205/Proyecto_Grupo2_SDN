@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-21",
+  "scope": "VNRT original; no prueba del destino",
+  "checks": {
+    "baseline_health_metadata": true,
+    "prelogin_resources_denied": true,
+    "h1_estudiante_matrix": true,
+    "h1_estudiante_logout": true,
+    "h1_docente_matrix": true,
+    "h1_docente_logout": true,
+    "h1_administrativo_matrix": true,
+    "h1_administrativo_logout": true,
+    "h1_visitante_matrix": true,
+    "h1_visitante_logout": true,
+    "h2_estudiante_matrix": true,
+    "h2_estudiante_logout": true,
+    "h2_docente_matrix": true,
+    "h2_docente_logout": true,
+    "h2_administrativo_matrix": true,
+    "h2_administrativo_logout": true,
+    "h2_visitante_matrix": true,
+    "h2_visitante_logout": true,
+    "two_independent_sessions": true,
+    "selective_notas_revocation_keeps_lms": true,
+    "selective_revocation_preserves_peer": true,
+    "permission_restored_after_fresh_evaluation": true,
+    "logout_preserves_peer": true,
+    "final_no_individual_rules": true
+  }
+}

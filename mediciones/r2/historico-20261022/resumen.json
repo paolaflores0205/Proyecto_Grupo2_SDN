@@ -1,0 +1,24 @@
+{
+  "valid_trials": 23,
+  "initiated_trials": 24,
+  "incomplete_trials": 1,
+  "continuation": "Failed setup precondition, no measured trial",
+  "pilot_excluded": true,
+  "unit": "ms",
+  "metrics": {
+    "confirmation": {
+      "mean": 985.7273826085515,
+      "median": 977.7383999989979,
+      "min": 962.988299999779,
+      "max": 1125.4628999995475,
+      "p95_exploratory_nearest_rank": 1024.51469999869
+    },
+    "dti_response": {
+      "mean": 382.2614173911026,
+      "median": 417.85129999880155,
+      "min": 212.09149999958754,
+      "max": 555.0827999995818,
+      "p95_exploratory_nearest_rank": 534.7352000007959
+    }
+  }
+}

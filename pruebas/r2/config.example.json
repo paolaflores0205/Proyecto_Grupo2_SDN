@@ -1,0 +1,66 @@
+{
+  "ssh": {
+    "nodes": {
+      "controller": {
+        "host": "203.0.113.10",
+        "port": 5800,
+        "user": "ubuntu"
+      },
+      "sw1": {
+        "host": "203.0.113.10",
+        "port": 5801,
+        "user": "ubuntu"
+      },
+      "sw2": {
+        "host": "203.0.113.10",
+        "port": 5802,
+        "user": "ubuntu"
+      },
+      "sw3": {
+        "host": "203.0.113.10",
+        "port": 5803,
+        "user": "ubuntu"
+      },
+      "h1": {
+        "host": "203.0.113.10",
+        "port": 5811,
+        "user": "ubuntu"
+      },
+      "h2": {
+        "host": "203.0.113.10",
+        "port": 5812,
+        "user": "ubuntu"
+      }
+    },
+    "known_hosts": "~/.ssh/known_hosts"
+  },
+  "network": {
+    "portal_url": "https://192.0.2.10",
+    "portal_ca": "/home/ubuntu/vnrt-portal-paso4.crt",
+    "resources": {
+      "lms": {
+        "ip": "192.0.2.101",
+        "port": 443,
+        "ca": "/home/ubuntu/vnrt-lms-paso3.crt"
+      },
+      "notas": {
+        "ip": "192.0.2.102",
+        "port": 443,
+        "ca": "/home/ubuntu/vnrt-notas-paso6.crt"
+      },
+      "administracion": {
+        "ip": "192.0.2.102",
+        "port": 8443,
+        "ca": "/home/ubuntu/vnrt-notas-paso6.crt"
+      }
+    },
+    "clients": {
+      "h1": "192.0.2.1",
+      "h2": "192.0.2.2"
+    },
+    "dti_url": "https://198.51.100.10:8443",
+    "dti_ca": "/home/ubuntu/vnrt-dti-paso7.crt",
+    "dti_accounts_path": "/ruta/privada/credenciales-dti.json",
+    "test_accounts_path": "/ruta/privada/usuarios-prueba.json"
+  }
+}

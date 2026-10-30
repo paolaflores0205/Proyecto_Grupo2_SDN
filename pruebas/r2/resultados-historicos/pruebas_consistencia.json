@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-21",
+  "scope": "VNRT original; no prueba del destino",
+  "checks": {
+    "teacher_ready_for_consistency": true,
+    "late_obsolete_job_retired": true,
+    "late_job_does_not_restore_notas": true,
+    "fresh_policy_reenables_notas": true,
+    "partial_installation_cleaned": true,
+    "recovery_revalidates_permissions": true,
+    "expiry_removes_access": true,
+    "final_no_live_sessions": true
+  }
+}

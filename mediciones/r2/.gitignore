@@ -1,0 +1,5 @@
+resultados.json
+mediciones.json
+resultados-locales/
+__pycache__/
+*.pyc
