@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "policy_id": "offline-policy-001",
+  "trial_id": "offline-trial-001",
+  "sensor_id": "simulated-sensor-g2",
+  "source_mode": "synthetic",
+  "direction": "request",
+  "src_ip": "192.0.2.10",
+  "dest_ip": "192.0.2.20",
+  "protocol": "TCP",
+  "dest_port": 80,
+  "signature_ids": [1000001],
+  "switch_dpid": "00:00:00:00:00:00:00:01",
+  "ingress_port": 7,
+  "priority": 2000,
+  "duration_seconds": 30,
+  "max_event_age_seconds": 120,
+  "future_tolerance_seconds": 5,
+  "protected_ips": ["192.0.2.1"]
+}
