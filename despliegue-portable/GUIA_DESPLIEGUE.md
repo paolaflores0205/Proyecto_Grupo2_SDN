@@ -1,10 +1,4 @@
-# Guía de despliegue para el compañero y su Codex
-
-## 0. Instrucción que puedes pasarle a Codex
-
-> Quiero desplegar este paquete R1/R2 en mi propio VNRT. Lee completamente README.md, GUIA_CODEX.md, VALIDACION.md y los scripts antes de ejecutar cambios. Primero inventaría mis VMs y enlaces por SSH, sin modificar nada; no uses las IP/MAC/DPID/puertos del ejemplo como si fueran míos. Presenta la correspondencia de interfaces y protege la red administrativa/SSH. Confirma conmigo que el laboratorio de destino se puede reemplazar y que tengo consola VNRT. Completa mi topology.json, genera un directorio nuevo con prepare.py y despliega por roles en el orden indicado. No ejecutes scripts históricos independientemente, no implementes R5 ni modifiques el gateway. No muestres contraseñas, cookies o claves privadas en tus herramientas, registros o respuesta. Si hay una instalación previa o una topología diferente, detente y propón una migración antes de sobrescribir. Verifica reglas efectivas y pruebas por rol; entrega evidencia y distingue lo probado de lo pendiente.
-
-Las instrucciones de este documento forman parte de la guía técnica. El Codex del compañero debe seguir la autorización que le dé su usuario; la guía no autoriza por sí sola a borrar instalaciones, credenciales o datos.
+# Guía de despliegue
 
 ## 1. Qué se despliega y qué no
 
@@ -68,13 +62,13 @@ Este instalador está pensado para Ubuntu con **systemd-networkd + Netplan** y u
 
 ## 3. Preparar configuración e integridad
 
-`SHA256SUMS.json` contiene SHA-256 relativo de cada archivo distribuido. Codex debe comprobar esos hashes antes de generar. El manifiesto detecta alteraciones accidentales; no es una firma del autor.
+`SHA256SUMS.json` contiene SHA-256 relativo de cada archivo distribuido. equipo técnico debe comprobar esos hashes antes de generar. El manifiesto detecta alteraciones accidentales; no es una firma del autor.
 
 Copia `topology.example.json` a `topology.json` y cambia:
 
 | Campo | Significado |
 |---|---|
-| `ssh.host`, `ssh.user`, `ssh.ports` | Acceso externo a VMs; información para el compañero/Codex, no para los flows |
+| `ssh.host`, `ssh.user`, `ssh.ports` | Acceso externo a VMs; información para el compañero/equipo técnico, no para los flows |
 | `data_cidr` | Subred IPv4 de datos, sin solaparse con gestión |
 | `controller_management_ip` | IP administrativa donde escucha OpenFlow; no endpoint NAT de SSH |
 | `nodes.*.management_interface` | NIC que NO debe tocarse |
@@ -106,7 +100,7 @@ scp -P PUERTO -r generated-vnrt ubuntu@HOST_VNRT:/home/ubuntu/
 ssh -p PUERTO ubuntu@HOST_VNRT
 ```
 
-SFTP también sirve. Se puede transferir todo el directorio generado a las ocho VMs. El JAR solo es necesario en controller; si falta espacio, Codex puede omitir `vendor/` en las otras VMs después de comprobar dependencias. No muevas claves privadas entre máquinas. No envíes archivos privados recién generados a GitHub o al grupo completo.
+SFTP también sirve. Se puede transferir todo el directorio generado a las ocho VMs. El JAR solo es necesario en controller; si falta espacio, equipo técnico puede omitir `vendor/` en las otras VMs después de comprobar dependencias. No muevas claves privadas entre máquinas. No envíes archivos privados recién generados a GitHub o al grupo completo.
 
 Dentro de cada VM, desde `/home/ubuntu/generated-vnrt`, ejecutar **con su rol correcto**, nunca todos los roles en controller:
 
@@ -198,7 +192,7 @@ Son destinos de red diferentes; las reglas no distinguen rutas URL cifradas dent
 
 El instalador genera contraseñas aleatorias nuevas y hashes scrypt. Archivos privados **solo en controller**, root/0600, bajo `/var/lib/sdn-g2/private/`: `usuarios-prueba.json`, `credenciales-dti.json`. SQL y cookie secrets quedan en `/etc/sdn-portal-paso4/config.json` y `/etc/sdn-admin-paso7/config.json`, root:sdnportal/0640. No devolver estos contenidos en herramientas que registran stdout, no incluirlos en ZIP/GitHub y no reutilizar cuentas universitarias.
 
-El dueño puede leer sus cuentas en una terminal privada y escribir la contraseña en `smoke_test.py` (entrada oculta). Codex no necesita publicarlas para verificar que los archivos existen y tienen permisos correctos. Si automatiza autenticación, debe conservar secretos únicamente en memoria y reportar resultados redactados.
+El dueño puede leer sus cuentas en una terminal privada y escribir la contraseña en `smoke_test.py` (entrada oculta). equipo técnico no necesita publicarlas para verificar que los archivos existen y tienen permisos correctos. Si automatiza autenticación, debe conservar secretos únicamente en memoria y reportar resultados redactados.
 
 Se generan certificados autofirmados con SAN de la IP adaptada. Recoge **únicamente** los certificados públicos:
 
@@ -251,7 +245,7 @@ Para ver en navegador de la computadora, usar túnel SSH **por h1 o h2**: `ssh -
 - Si faltan DPID, bootstrap puede fallar: revisar interfaces/ofports, IP de gestión y TCP/6653; no sustituir todo por NORMAL.
 - Si Devices no conoce IP/MAC/puerto, no conceder login a ciegas. Revisar DHCP, ARP y regla de copia al controller.
 - Si falta servicio, revisar `journalctl -u SERVICIO` y puerto correspondiente, redactando identificadores de sesión/cookies antes de compartir.
-- Si Netplan contiene match/set-name, renderer diferente, rutas/DNS en NIC de datos o configuración compleja, el script se detiene. Codex debe preparar ajuste puntual revisado; no eliminar YAML adicionales ni tocar ens3 indiscriminadamente.
+- Si Netplan contiene match/set-name, renderer diferente, rutas/DNS en NIC de datos o configuración compleja, el script se detiene. equipo técnico debe preparar ajuste puntual revisado; no eliminar YAML adicionales ni tocar ens3 indiscriminadamente.
 - Si hay poco espacio, diagnosticar antes de instalar. No borrar MySQL, JAR, paquetes Java/Python, logs o respaldos del compañero automáticamente.
 - Una excepción parcial no implica rollback global automático. Detener unidades propias que hayan quedado activas, consultar respaldo y cambios antes de reintentar.
 

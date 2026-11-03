@@ -4,7 +4,7 @@
 
 Este paquete reproduce la implementación final de autenticación, sesiones, autorización por rol, administración/auditoría y DHCP reservado. Incluye Floodlight, aplicación Python, MySQL, páginas de recursos y reglas de red. **No incluye R5, Suricata, cambios al gateway ni reglas antiguas de pruebas.**
 
-No ejecutes los archivos históricos por sus nombres. Primero lee **GUIA_CODEX.md**. El punto de entrada es `prepare.py`, seguido de `install_node.py` dentro del directorio generado.
+No ejecutes los archivos históricos por sus nombres. Primero lee **GUIA_DESPLIEGUE.md**. El punto de entrada es `prepare.py`, seguido de `install_node.py` dentro del directorio generado.
 
 1. Inventariar las ocho VMs y confirmar los enlaces reales. Obtener IP, MAC, interfaces, DPID y puertos OVS.
 2. Copiar `topology.example.json` a un archivo propio; sustituir los valores de ejemplo. Marcar `confirmed_after_inventory: true` solamente después de revisar la correspondencia completa.
@@ -18,7 +18,7 @@ La configuración admite direcciones, MAC, DPID, nombres de interfaces/bridges y
 
 | Archivo/directorio | Uso |
 |---|---|
-| `GUIA_CODEX.md` | Instrucciones completas para el compañero y su Codex |
+| `GUIA_DESPLIEGUE.md` | Instrucciones completas para el compañero y su equipo técnico |
 | `topology.example.json` | Única configuración de red de entrada; NO copiar sus valores sin inventario |
 | `prepare.py` | Valida y genera código/configuración ajustados al destino |
 | `install_node.py` | Instala una VM localmente, con confirmación de laboratorio limpio |

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "policy_id": "adrian-vnrt-interno-v1",
+  "trial_id": "adrian-vnrt-interno-01",
+  "sensor_id": "synthetic-adrian-g2",
+  "source_mode": "synthetic",
+  "direction": "request",
+  "src_ip": "192.0.2.1",
+  "dest_ip": "192.0.2.101",
+  "protocol": "TCP",
+  "dest_port": 443,
+  "signature_ids": [1000001],
+  "switch_dpid": "00:00:00:00:36:d8:d8:e5",
+  "ingress_port": 2,
+  "priority": 2000,
+  "duration_seconds": 60,
+  "max_event_age_seconds": 120,
+  "future_tolerance_seconds": 5,
+  "protected_ips": ["198.51.100.1", "198.51.100.10", "192.0.2.10"]
+}

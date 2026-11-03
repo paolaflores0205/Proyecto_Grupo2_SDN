@@ -1,8 +1,14 @@
 __pycache__/
 *.pyc
+.venv/
+venv/
+config.local.json
+topology.json
 .env
 *.key
 *.pem
-usuarios-prueba.json
-topology.json
-generated-*/
+*.p12
+*.aesgcm
+*.dpapi
+*.sqlite3
+resultados-locales/

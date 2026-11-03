@@ -1,0 +1,26 @@
+[Unit]
+Description=SDN G2 R1 session to flow adapter - step 5
+After=mysql.service sdn-floodlight.service
+Requires=mysql.service
+Wants=sdn-floodlight.service
+PartOf=sdn-floodlight.service
+
+[Service]
+Type=simple
+User=sdnportal
+Group=sdnportal
+WorkingDirectory=/opt/sdn-portal-paso4
+ExecStart=/usr/bin/python3 /opt/sdn-portal-paso4/vnrt_r1_paso5.py daemon
+Restart=on-failure
+RestartSec=2
+RuntimeDirectory=sdn-r1
+RuntimeDirectoryMode=0700
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+RestrictAddressFamilies=AF_INET AF_UNIX
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target

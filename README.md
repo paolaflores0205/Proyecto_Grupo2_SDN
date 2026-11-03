@@ -1,14 +1,23 @@
-# Proyecto Grupo 2 SDN — código del parcial
+# Arquitectura SDN Grupo 2
 
-Implementación VNRT de R1/R2: portal HTTPS, autenticación y sesiones, autorización por rol, aplicación Python, administración DTI, MySQL, Kea DHCP, Floodlight y OVS/OpenFlow 1.3.
+Versión de conservación del 2 de noviembre de 2026, anterior al reemplazo de la infraestructura VNRT. Reúne la base de despliegue, R1/R2 multitabla, el código recuperado del respaldo original y las variantes de trabajo existentes en el repositorio.
 
-- `despliegue-portable/`: paquete configurable y guía de instalación. Leer README.md, GUIA_CODEX.md y VALIDACION.md antes de ejecutar. Los nombres históricos son dependencias del código vigente; no ejecutar scripts por separado.
-- `vnrt-actual/`: solo aparece si fue posible obtener una captura por SSH en modo lectura. Consultar ESTADO_EXPORTACION.json; si no existe esta carpeta, se publica únicamente la versión portable archivada del 10/10, no una captura nueva del VNRT.
-- `ESTADO_EXPORTACION.json`: alcance y disponibilidad de la captura actual.
+| Carpeta | Contenido y estado |
+|---|---|
+| despliegue-portable | Generación por inventario, esquema MySQL, instalación por nodo y servicios de portal, DTI, DHCP, LMS, Notas y Administración. Base anterior al cambio multitabla. |
+| actualizacion-multitabla | Versión R1/R2 de Matt: tablas 0/10/20/30 en sw2, permisos individuales R2 y verificación de reglas efectivas. |
+| archivo-vnrt-20261023 | Código original y unidades systemd recuperados del respaldo anterior al Lab 5; referencia histórica con sus direcciones originales. |
+| variantes/paola | Copia de su código publicado en respaldo-paola-vnrt-20261024; integración pendiente de revisión conjunta. |
+| variantes/r5-v1 | Componente publicado en r5-mitigacion-v1: mitigación, adaptador Floodlight y tests simulados; no equivale a R5 desplegado con Suricata. |
+| pruebas/r2 y mediciones/r2 | Instrumentos configurables y resultados históricos, distinguidos de pruebas de carga pendientes. |
+| respaldo | Guía de reconstrucción, dependencias, procedencia, hashes y comprobaciones de la entrega. |
 
-R5/Suricata siguen pendientes. No se incluyen contraseñas, claves privadas, certificados privados, cookies, datos MySQL, respaldos ni evidencias de usuarios. El JAR de Floodlight NO se sube al repositorio: antes de generar un despliegue, obtenerlo del paquete portable original o de la instalación autorizada en /opt/sdn-floodlight/floodlight.jar y colocarlo en despliegue-portable/vendor/floodlight.jar. Se conservan sus avisos de licencia. La instalación portable requiere adaptar IP, MAC, DPID, interfaces y puertos al destino.
+La referencia de reconstrucción de Matt es despliegue-portable + actualizacion-multitabla. Las variantes no se mezclan automáticamente. Empezar por [la guía de reconstrucción](respaldo/GUIA_RECONSTRUCCION.md).
 
-La instantánea no incluye configuraciones privadas de /etc ni datos de /var/lib. El paquete portable genera secretos y certificados nuevos. No se modificó el VNRT para esta exportación.
+No se consiguió conexión al controller para una captura nueva el 02/11. Por ello, esta rama conserva fuentes disponibles y el respaldo anterior al Lab 5, no certifica el estado vivo del VNRT en esa fecha. No modifica main ni despliega cambios en máquinas.
 
-## Datos ficticios para publicación
-Las IP de ejemplo utilizan redes de documentación 192.0.2.0/24, 198.51.100.0/24 y 203.0.113.0/24; MAC y DPID se sustituyeron por identificadores ficticios. No representan el VNRT actual. Deben reemplazarse con el inventario privado de cada destino. No usar estas direcciones para un despliegue real sin adaptación. Por esta sanitización, el contenido no es una copia byte a byte de los archivos originales. SHA256SUMS del paquete original no se incluye porque ya no correspondería a estos archivos.
+El respaldo completo de ocho nodos y el SQL real se conservan cifrados fuera del repositorio. Esta rama no publica credenciales, claves privadas, cookies, sesiones ni datos de cuentas. El JAR de Floodlight y las imágenes del sistema se gestionan como dependencias externas. No es una imagen de disco de las VM. Las pruebas funcionales históricas no sustituyen una prueba integral de recuperación en el nuevo VNRT.
+
+## Datos de red anonimizados
+
+Esta edición pública sustituye direcciones internas por las redes de documentación 192.0.2.0/24, 198.51.100.0/24 y 203.0.113.0/24; las MAC y los DPID reales también se sustituyeron. Los identificadores aquí son ejemplos y no permiten reconectar al VNRT original. Completar el inventario propio antes de generar o instalar. La copia original íntegra se conserva únicamente en el respaldo privado local. Los hashes de archivos publicados corresponden a esta edición; no se afirma identidad byte a byte con el código remoto original.

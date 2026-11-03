@@ -1,0 +1,25 @@
+[Unit]
+Description=SDN G2 identity portal - step 4, no automatic network permissions
+Wants=network-online.target
+After=network-online.target mysql.service
+Requires=mysql.service
+
+[Service]
+Type=simple
+User=sdnportal
+Group=sdnportal
+WorkingDirectory=/opt/sdn-portal-paso4
+ExecStart=/usr/bin/python3 -m gunicorn --workers 1 --threads 2 --bind 192.0.2.10:443 --certfile /etc/sdn-portal-paso4/server.crt --keyfile /etc/sdn-portal-paso4/server.key --ssl-version 2 --access-logfile - --error-logfile - --timeout 30 vnrt_portal_paso4:app
+Restart=on-failure
+RestartSec=3
+AmbientCapabilities=CAP_NET_BIND_SERVICE
+CapabilityBoundingSet=CAP_NET_BIND_SERVICE
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+RestrictAddressFamilies=AF_INET AF_UNIX
+UMask=0027
+
+[Install]
+WantedBy=multi-user.target

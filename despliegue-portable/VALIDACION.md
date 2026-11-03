@@ -16,6 +16,6 @@
 
 El nuevo instalador portable **no se ejecutó en el VNRT de los compañeros**. No se afirma que APT, systemd, Netplan, Java, MySQL y Kea estén configurados igual en todas sus VMs. La equivalencia del catálogo no equivale a un despliegue integral validado en otro entorno.
 
-La implementación original R1/R2 se probó funcionalmente en el VNRT de Matthew; el paquete conserva ese código y añade generación/configuración para destino e instalación limpia. Deben seguirse las verificaciones de GUIA_CODEX.md después de instalar. No incluye mediciones de carga del avance 8, TCAM física, pruebas del campus ni implementación R5.
+La implementación original R1/R2 se probó funcionalmente en el VNRT de Matthew; el paquete conserva ese código y añade generación/configuración para destino e instalación limpia. Deben seguirse las verificaciones de GUIA_DESPLIEGUE.md después de instalar. No incluye mediciones de carga del avance 8, TCAM física, pruebas del campus ni implementación R5.
 
 No se aplicaron cambios de red ni de servicios al VNRT de Matthew para construir este paquete. La recuperación mediante consola y los respaldos deben prepararse antes de cualquier despliegue de destino.

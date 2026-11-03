@@ -1,0 +1,22 @@
+[Unit]
+Description=SDN G2 - DTI management and audit - step 7
+After=network-online.target mysql.service sdn-r1.service
+Wants=network-online.target sdn-r1.service
+Requires=mysql.service
+
+[Service]
+User=sdnportal
+Group=sdnportal
+WorkingDirectory=/opt/sdn-admin-paso7
+ExecStart=/usr/bin/python3 -m gunicorn --workers 1 --threads 2 --bind 198.51.100.10:8443 --certfile /etc/sdn-admin-paso7/server.crt --keyfile /etc/sdn-admin-paso7/server.key --ssl-version 2 --access-logfile - --error-logfile - --timeout 30 vnrt_admin_paso7:app
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+RestrictAddressFamilies=AF_INET AF_UNIX
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target

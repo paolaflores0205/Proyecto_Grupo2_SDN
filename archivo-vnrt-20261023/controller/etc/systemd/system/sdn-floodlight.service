@@ -1,0 +1,27 @@
+[Unit]
+Description=Floodlight SDN Grupo 2 - VNRT controlled baseline
+Wants=network-online.target
+After=network-online.target
+StartLimitIntervalSec=120
+StartLimitBurst=3
+
+[Service]
+Type=simple
+User=ubuntu
+Group=ubuntu
+StateDirectory=sdn-floodlight
+StateDirectoryMode=0750
+WorkingDirectory=/var/lib/sdn-floodlight
+ExecStart=/usr/bin/java -Xms128m -Xmx512m -jar /opt/sdn-floodlight/floodlight.jar -cf /opt/sdn-floodlight/floodlight_paso2.properties
+ExecStartPost=/usr/bin/python3 /opt/sdn-floodlight/vnrt_flujos_base_paso2.py apply
+Restart=on-failure
+RestartSec=5
+TimeoutStartSec=75
+TimeoutStopSec=20
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+UMask=0027
+
+[Install]
+WantedBy=multi-user.target

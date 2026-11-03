@@ -1,0 +1,146 @@
+{
+  "scope": "Project and configuration backup, all eight nodes; NOT full VM disk images. No gateway change.",
+  "nodes": {
+    "controller": {
+      "utc": "2026-10-24T02:24:51+00:00",
+      "verified_archives": {
+        "files": {
+          "encrypted_sha256": "5a5ba27ccedcc7f1e0c17685353b1a103745262f86ad7cfe730a34af1b1151c7",
+          "plaintext_sha256": "69b41e6ee9edc9c520cb42482ce96203c4024f6b1a405fa32e3665937d693317",
+          "plaintext_bytes": 552029694
+        },
+        "metadata": {
+          "encrypted_sha256": "93b4336a84732714b7e4efb07adb0f081418a3b696b6a1ee930407347dc378a7",
+          "plaintext_sha256": "f23b0c6e3028f90a0c241d377cee9e4bdcbc10f9fb21fef6ae25a500bcbf1d65",
+          "plaintext_bytes": 55482
+        },
+        "database": {
+          "encrypted_sha256": "33a7a8093d97ab7738c973e29a91b6a76923accb538ea1e2774a3472d59227b9",
+          "plaintext_sha256": "2f5942abb4141592d619767ac8600afa92f4b85f51351702906dc39f7f44dfe2",
+          "plaintext_bytes": 1853785
+        }
+      }
+    },
+    "sw1": {
+      "utc": "2026-10-24T02:27:04+00:00",
+      "verified_archives": {
+        "files": {
+          "encrypted_sha256": "5846c06642b66231feecb596481259e0c5454d66b8c30606fcd75e2a8e4bc0d7",
+          "plaintext_sha256": "d5759f8535e2a3ce568137f43b8c099d07c40c96f7069ebe26117209e6c01e05",
+          "plaintext_bytes": 5255866
+        },
+        "ovsdb": {
+          "encrypted_sha256": "c168083ef74bf2658244c293bf5e7720c79990321c6e406c1c1bb3990d7df4f1",
+          "plaintext_sha256": "d691fe17be26ec1cf0906073e56d6691c3d646c20f01381b4493f15258451acf",
+          "plaintext_bytes": 20847
+        },
+        "metadata": {
+          "encrypted_sha256": "4093ae283e050b416eaba17e71302ce58452e795e29c085f71cd8cb7d16bda93",
+          "plaintext_sha256": "d853466d18bcd68a3d96706088768d44230a6eb41052d2e8c0056fc0ad4d592b",
+          "plaintext_bytes": 71124
+        }
+      }
+    },
+    "sw2": {
+      "utc": "2026-10-24T02:27:11+00:00",
+      "verified_archives": {
+        "files": {
+          "encrypted_sha256": "915b494d6a14559df0dce02baaf5961fa7e7eb5bae7852592860191740a4ad9d",
+          "plaintext_sha256": "fb616d826251262799198e277d9bf4fbf87019de9a067ea2577a05282c348503",
+          "plaintext_bytes": 1261722
+        },
+        "ovsdb": {
+          "encrypted_sha256": "f846169f275bc2ff9d42e9e0ff9659b4f0e24918f6422181499df2c015e54c37",
+          "plaintext_sha256": "e10380cb8a5afd0cd43577988dc612d36cc580f5a2619d9ad87fce5648417156",
+          "plaintext_bytes": 20847
+        },
+        "metadata": {
+          "encrypted_sha256": "e311c99a8146ad907c903472d51f194fe354284fd285c78b4c2567bc04cba1d5",
+          "plaintext_sha256": "67bbfcbf363da47a09949cad1ef993235df71b0a842906949d5ffb4f21bd9e5b",
+          "plaintext_bytes": 67693
+        }
+      }
+    },
+    "sw3": {
+      "utc": "2026-10-24T02:27:17+00:00",
+      "verified_archives": {
+        "files": {
+          "encrypted_sha256": "08cda390bccbfdac39bfe7b3cc7686e39fbaf4e5f35887d1a09bb6466c7c31fc",
+          "plaintext_sha256": "c2f51cc8f64891a0d4031db03d8a44675a0b404ade1c4059c30a64070cbd0026",
+          "plaintext_bytes": 1257915
+        },
+        "ovsdb": {
+          "encrypted_sha256": "8152592d35d971aa2218a71357fbca13625551e2499faaa610cdaf8caf01eb98",
+          "plaintext_sha256": "7145014ee4f8b2864d2db3f0b0f1e908241f00360c3526174cefc15181938ba5",
+          "plaintext_bytes": 20847
+        },
+        "metadata": {
+          "encrypted_sha256": "8fef759bd602d18284b27264591e5bdd2bc75235f4a6f368273970a22a8ae0ed",
+          "plaintext_sha256": "30f1fb30147b8ad585a79c1b6d0e32b71861961aeed1f0ac9b76f41e95a5fafb",
+          "plaintext_bytes": 65397
+        }
+      }
+    },
+    "h1": {
+      "utc": "2026-10-24T02:27:23+00:00",
+      "verified_archives": {
+        "files": {
+          "encrypted_sha256": "062a27370498a844312140301f6a66824f2bda29052e46dfff646ee065bae846",
+          "plaintext_sha256": "819fe300611b03a1ba0156710309deef3d0aaf0510c04064eb65afb951ba2156",
+          "plaintext_bytes": 1008753
+        },
+        "metadata": {
+          "encrypted_sha256": "bfc56ddb24c1ed04cda801d05d478b1490157969c5b8d68b00a7967608689fa5",
+          "plaintext_sha256": "7888a70be5c88fd587024a729ff7c7ffc331360f1387bc984e33d9a03b1912bf",
+          "plaintext_bytes": 50553
+        }
+      }
+    },
+    "h2": {
+      "utc": "2026-10-24T02:27:29+00:00",
+      "verified_archives": {
+        "files": {
+          "encrypted_sha256": "6e8795bacd199367ad83395690f9d68b1e37acc74099afcd237d3a64cdb44005",
+          "plaintext_sha256": "333b073b7b8d90303b7c05b2efa803fd9b36dd4b3b789e16870b23236c245d68",
+          "plaintext_bytes": 1001811
+        },
+        "metadata": {
+          "encrypted_sha256": "f09c4488e93c40b5acad042377c656d9aa56ea4447c5355cbbd877d5fb7e057d",
+          "plaintext_sha256": "6c932be79aaff1730a8080dd44f9515c9ce249ba1da3553a61cc73e889f2802a",
+          "plaintext_bytes": 50498
+        }
+      }
+    },
+    "h3": {
+      "utc": "2026-10-24T02:27:33+00:00",
+      "verified_archives": {
+        "files": {
+          "encrypted_sha256": "1073115a5d149c4c00e3e9ccbb8666d412b90d5856ca4a34db8fee5b192408f2",
+          "plaintext_sha256": "ef5965a78f2f152d2cd105c2c2fa1151ee7e9c9fa14cd5d1316cbced93e8d183",
+          "plaintext_bytes": 1022272
+        },
+        "metadata": {
+          "encrypted_sha256": "097ab74fc1854503399f4da33bb77b21873ee12eb2074a1cadca041347b01a59",
+          "plaintext_sha256": "4f48f419f3a83ae1a390adda1e23027e08121d0176c360f3d20675d87ac9b562",
+          "plaintext_bytes": 50005
+        }
+      }
+    },
+    "h4": {
+      "utc": "2026-10-24T02:27:39+00:00",
+      "verified_archives": {
+        "files": {
+          "encrypted_sha256": "f956c0b6aeb17fbba746ca16869fb5d968a175186a713f9bc99e3ca9449d895f",
+          "plaintext_sha256": "51dccb33da0a2aa41a52f4f29c37a4a6b07ba807b6f885ec147ffba741387ec8",
+          "plaintext_bytes": 1030766
+        },
+        "metadata": {
+          "encrypted_sha256": "63d1b60a159ffade0fe25c5eb7c76f0b076cc7b88f97e4978c57a7e3b9b757fa",
+          "plaintext_sha256": "ff9ba63bed5ec1d25d74275114598b9a4fed470a0a8532c11e71c3125838a7e8",
+          "plaintext_bytes": 50074
+        }
+      }
+    }
+  },
+  "private_archives_uploaded": false
+}

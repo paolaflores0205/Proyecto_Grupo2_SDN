@@ -1,0 +1,17 @@
+[Unit]
+Description=SDN G2 AVZ7 fictional administrative resource - not DTI
+After=network-online.target
+Wants=network-online.target
+[Service]
+User=ubuntu
+WorkingDirectory=/opt/sdn-notas-paso6
+ExecStart=/usr/bin/python3 /opt/sdn-notas-paso6/vnrt_recurso_administrativo.py
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+RestrictAddressFamilies=AF_INET AF_UNIX
+[Install]
+WantedBy=multi-user.target
