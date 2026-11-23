@@ -1,0 +1,35 @@
+{
+  "floodlight_url": "http://127.0.0.1:8080",
+  "topology_path": "/etc/sdn-g2/topology.json",
+  "state_dir": "/var/lib/sdn-r4",
+  "poll_interval_s": 1.0,
+  "consecutive_windows": 3,
+  "rule_prefix": "g2-r4-drop-",
+  "drop_table": 0,
+  "drop_priority": 1600,
+  "base_timeout_s": 30,
+  "escalated_timeout_s": 120,
+  "recidivism_window_s": 180,
+  "culprit_share_ratio": 0.25,
+  "allowlist_ips": [
+    "192.168.10.10",
+    "192.168.10.254"
+  ],
+  "allowlist_cidrs": [
+    "192.168.0.0/24"
+  ],
+  "protected_servers": {
+    "h5": {
+      "label": "LMS",
+      "capacity_mbps": 20.0,
+      "threshold_ratio": 0.80,
+      "pps_threshold": 1500
+    },
+    "h4": {
+      "label": "Notas/Admin",
+      "capacity_mbps": 20.0,
+      "threshold_ratio": 0.80,
+      "pps_threshold": 1500
+    }
+  }
+}

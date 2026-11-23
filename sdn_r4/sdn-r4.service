@@ -1,0 +1,24 @@
+[Unit]
+Description=SDN R4 Volumetric Detection and Selective Mitigation Service
+Requires=sdn-rest-tunnel.service
+After=sdn-rest-tunnel.service network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/opt/sdn-r4
+Environment=PYTHONUNBUFFERED=1
+Environment=SDN_R4_CONFIG=/etc/sdn-r4/config.json
+ExecStart=/usr/bin/python3 -u /opt/sdn-r4/sdn_r4.py daemon
+Restart=on-failure
+RestartSec=2
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+ReadWritePaths=/var/lib/sdn-r4
+PrivateTmp=yes
+
+[Install]
+WantedBy=multi-user.target

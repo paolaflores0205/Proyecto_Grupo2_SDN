@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Campus Virtual Universitario · Acceso</title>
+  <link rel="stylesheet" href="/static/portal.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand-crest">CV</div>
+      <div class="brand-title">
+        <strong>Campus Virtual Universitario</strong>
+        <small>Facultad de Ciencias e Ingeniería · Semestre Académico 2026-2</small>
+      </div>
+      <div class="topbar-right">
+        <span class="device-pill"><span class="pill-dot"></span>Servicios en línea</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="layout-login">
+      <section>
+        <p class="eyebrow">Portal Académico Unificado</p>
+        <h1>Bienvenido al Campus Virtual</h1>
+        <p class="lead">
+          Ingresa con tu cuenta universitaria para acceder a las plataformas y herramientas asignadas a tu perfil académico.
+        </p>
+
+        <div class="role-grid">
+          <div class="role-tile">
+            <strong>Estudiantes</strong>
+            <span>Consulta tus cursos matriculados, materiales de clase, anuncios y fechas de entregas en el Aula Virtual.</span>
+          </div>
+          <div class="role-tile">
+            <strong>Docentes</strong>
+            <span>Gestiona tus cursos en el Aula Virtual y registra calificaciones, asistencias y actas del semestre.</span>
+          </div>
+          <div class="role-tile">
+            <strong>Personal Administrativo</strong>
+            <span>Atiende trámites estudiantiles, expedientes de mesa de partes, matrículas y constancias académicas.</span>
+          </div>
+          <div class="role-tile">
+            <strong>Visitantes</strong>
+            <span>Acceso informativo general con resguardo de la información académica y administrativa interna.</span>
+          </div>
+        </div>
+
+        <div class="news-card">
+          <h3>Avisos del semestre 2026-2</h3>
+          <ul class="news-list">
+            <li><span><strong>Semana 13:</strong> Entrega de laboratorios y cierre de evaluaciones continuas.</span><span>Nov 2026</span></li>
+            <li><span><strong>Registro de notas:</strong> Actas parciales habilitadas para docentes hasta el cierre de ciclo.</span><span>Vigente</span></li>
+            <li><span><strong>Mesa de partes:</strong> Emisión de constancias digitales disponible para personal administrativo.</span><span>En línea</span></li>
+          </ul>
+        </div>
+
+        <p class="disclaimer">
+          Plataforma de demostración académica (Grupo 2). Utilice únicamente las cuentas asignadas para la presentación.
+        </p>
+      </section>
+
+      <section class="card card-login">
+        <p class="eyebrow">Ingreso de usuarios</p>
+        <h2>Iniciar sesión</h2>
+        <p>Introduce tu usuario y contraseña para habilitar tus servicios académicos.</p>
+
+        {% if error %}
+        <p class="error" role="alert">{{ error }}</p>
+        {% endif %}
+
+        <form action="/login" method="post">
+          <input type="hidden" name="csrf" value="{{ csrf }}">
+          <label for="username">Usuario universitario</label>
+          <input id="username" name="username" maxlength="64" autocomplete="username" required placeholder="Ej.: est01, doc01, adm01">
+
+          <label for="password">Contraseña</label>
+          <input id="password" name="password" type="password" maxlength="256" autocomplete="current-password" required placeholder="••••••••••••">
+
+          <button class="full" type="submit">Ingresar al Campus Virtual</button>
+        </form>
+
+        <p class="note">
+          Por seguridad, tu sesión expira tras 15 minutos de inactividad y se bloquea temporalmente ante intentos fallidos repetidos.
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    Campus Virtual Universitario · Semestre 2026-2 · Acceso seguro HTTPS
+  </footer>
+</body>
+</html>

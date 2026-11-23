@@ -1,0 +1,209 @@
+{
+  "run_id": "lab7-matthew-phaseB-1795327118",
+  "executed_at_utc": "2026-11-22T05:58:38.767927+00:00",
+  "host_app": "192.168.0.20",
+  "preflight_health": {
+    "actual_individual_rules": 0,
+    "authorization_revision": 1338,
+    "baseline_rules": 98,
+    "database": "mysql",
+    "metadata": true,
+    "network_permissions_enabled": true,
+    "r2_rules": 0,
+    "scope": "R1 LMS; R2 Notas, Administración",
+    "session_rules": 0,
+    "status": "ok",
+    "tables_sw2": [
+      0,
+      10,
+      20,
+      30
+    ],
+    "version": "MULTITABLE-D-20261116",
+    "vlan": false
+  },
+  "test1_four_roles_matrix": {
+    "estudiante": {
+      "login_status": 200,
+      "probes": {
+        "lms": {
+          "ok": true,
+          "status": 200
+        },
+        "notas": {
+          "ok": false,
+          "error": "URLError"
+        },
+        "administracion": {
+          "ok": false,
+          "error": "URLError"
+        }
+      },
+      "sw2_flows_active_count": 4,
+      "health_active_rules": 4,
+      "logout_status": 200,
+      "health_after_logout_rules": 0
+    },
+    "docente": {
+      "login_status": 200,
+      "probes": {
+        "lms": {
+          "ok": true,
+          "status": 200
+        },
+        "notas": {
+          "ok": true,
+          "status": 200
+        },
+        "administracion": {
+          "ok": false,
+          "error": "URLError"
+        }
+      },
+      "sw2_flows_active_count": 6,
+      "health_active_rules": 10,
+      "logout_status": 200,
+      "health_after_logout_rules": 0
+    },
+    "administrativo": {
+      "login_status": 200,
+      "probes": {
+        "lms": {
+          "ok": false,
+          "error": "URLError"
+        },
+        "notas": {
+          "ok": false,
+          "error": "URLError"
+        },
+        "administracion": {
+          "ok": true,
+          "status": 200
+        }
+      },
+      "sw2_flows_active_count": 6,
+      "health_active_rules": 10,
+      "logout_status": 200,
+      "health_after_logout_rules": 0
+    },
+    "visitante": {
+      "login_status": 200,
+      "probes": {
+        "lms": {
+          "ok": false,
+          "error": "URLError"
+        },
+        "notas": {
+          "ok": false,
+          "error": "URLError"
+        },
+        "administracion": {
+          "ok": false,
+          "error": "URLError"
+        }
+      },
+      "sw2_flows_active_count": 8,
+      "health_active_rules": 4,
+      "logout_status": 200,
+      "health_after_logout_rules": 0
+    }
+  },
+  "test2_lockout_8_900s_account_h1_h2": {
+    "h1_4_failures_statuses": [
+      401,
+      401,
+      401,
+      401
+    ],
+    "h2_4_failures_statuses": [
+      401,
+      401,
+      401,
+      401
+    ],
+    "ninth_valid_pwd_attempt": {
+      "status": 429,
+      "error_snippet": "Demasiados intentos"
+    },
+    "third_party_doc_h2_status": 200,
+    "third_party_doc_h2_lms": {
+      "ok": true,
+      "status": 200
+    }
+  },
+  "test3_dti_selective_revoke_h2_keep_h1": {
+    "h1_before_probes": {
+      "lms": {
+        "ok": true,
+        "status": 200
+      },
+      "notas": {
+        "ok": true,
+        "status": 200
+      },
+      "administracion": {
+        "ok": false,
+        "error": "URLError"
+      }
+    },
+    "h2_before_probes": {
+      "lms": {
+        "ok": false,
+        "error": "URLError"
+      },
+      "notas": {
+        "ok": false,
+        "error": "URLError"
+      },
+      "administracion": {
+        "ok": true,
+        "status": 200
+      }
+    },
+    "sw2_flows_both_active": 12,
+    "health_both_rules": 20,
+    "dti_revoke": {
+      "sessions_before": 2,
+      "h2_sid_prefix": "0b37bdc19e0ea11f",
+      "dti_login_status": 200,
+      "dti_revoke_status": 200
+    },
+    "h2_after_revoke_probes": {
+      "lms": {
+        "ok": false,
+        "error": "URLError"
+      },
+      "notas": {
+        "ok": false,
+        "error": "URLError"
+      },
+      "administracion": {
+        "ok": false,
+        "error": "URLError"
+      }
+    },
+    "h1_after_revoke_probes": {
+      "lms": {
+        "ok": true,
+        "status": 200
+      },
+      "notas": {
+        "ok": true,
+        "status": 200
+      },
+      "administracion": {
+        "ok": false,
+        "error": "URLError"
+      }
+    },
+    "sw2_flows_after_h2_revoke": 6,
+    "health_after_h2_revoke_rules": 10,
+    "h1_logout_status": 200
+  },
+  "cleanup": {
+    "remaining_active_sessions": 0,
+    "sync_ok": true,
+    "actual_individual_rules": 0,
+    "baseline_rules": 98
+  }
+}

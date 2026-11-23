@@ -1,0 +1,62 @@
+# Host: app (192.168.0.20)
+# Exit code: 0
+
+IMPORTED_FROM: /tmp/lab7_matthew_stage/access/__init__.py
+test_1_1_2_all_invalid_attempts_rejected_alike (tests.test_r1_01_02_validate_credentials.InvalidCredentials.test_1_1_2_all_invalid_attempts_rejected_alike)
+1.1.2 Invalido (R1-02): clave erronea, inexistente, vacios e inyeccion -> rechazo uniforme. ... ok
+test_1_1_4_inactive_user_rejected (tests.test_r1_01_02_validate_credentials.InvalidCredentials.test_1_1_4_inactive_user_rejected)
+1.1.4 Invalido (R1-01): cuenta desactivada con clave correcta -> mismo rechazo uniforme. ... ok
+test_1_1_5_injection_never_reaches_the_store (tests.test_r1_01_02_validate_credentials.InvalidCredentials.test_1_1_5_injection_never_reaches_the_store)
+1.1.5 Invalido (R1-02): caracteres de SQLi se rechazan antes de consultar la base. ... ok
+test_1_1_6_malformed_hash_is_false (tests.test_r1_01_02_validate_credentials.PasswordHashesAndSQLAdapter.test_1_1_6_malformed_hash_is_false)
+1.1.6 Invalido (R1-02): hash danado o metodo desconocido nunca autentica ni lanza excepcion. ... ok
+test_1_1_7_compatible_with_werkzeug_hashes (tests.test_r1_01_02_validate_credentials.PasswordHashesAndSQLAdapter.test_1_1_7_compatible_with_werkzeug_hashes)
+1.1.7 Integracion (R1-01): compatibilidad exacta con hashes scrypt y pbkdf2 de Werkzeug. ... ok
+test_1_1_8_mysql_user_store_parameterized_query (tests.test_r1_01_02_validate_credentials.PasswordHashesAndSQLAdapter.test_1_1_8_mysql_user_store_parameterized_query)
+1.1.8 Integracion simulada (R1-01/R1-02): MySQLUserStore usa consulta parametrizada %s. ... ok
+test_1_1_1_valid_user_gets_id_and_role (tests.test_r1_01_02_validate_credentials.ValidCredentials.test_1_1_1_valid_user_gets_id_and_role)
+1.1.1 Normal (R1-01): usuarios activos de los 4 roles reales obtienen id y codigo de rol. ... ok
+test_1_1_3_username_is_normalized (tests.test_r1_01_02_validate_credentials.ValidCredentials.test_1_1_3_username_is_normalized)
+1.1.3 Limite (R1-01): el usuario se normaliza en minusculas y sin espacios. ... ok
+test_1_2_1_lock_at_exactly_n (tests.test_r1_03_lockout.Lockout.test_1_2_1_lock_at_exactly_n)
+1.2.1 Limite (R1-03): con N-1=7 fallos sigue habilitada; al N=8 queda bloqueada. ... ok
+test_1_2_2_unlocks_after_window (tests.test_r1_03_lockout.Lockout.test_1_2_2_unlocks_after_window)
+1.2.2 Limite (R1-03): pasados 900 s desde los fallos, la cuenta vuelve a habilitarse. ... ok
+test_1_2_3_account_locked_from_any_terminal (tests.test_r1_03_lockout.Lockout.test_1_2_3_account_locked_from_any_terminal)
+1.2.3 Normal (R1-03): 4 fallos desde h1 + 4 desde h2 bloquean la cuenta (8 total). ... ok
+test_1_2_4_terminal_locked_for_password_spraying (tests.test_r1_03_lockout.Lockout.test_1_2_4_terminal_locked_for_password_spraying)
+1.2.4 Normal (R1-03): un terminal que prueba 8 cuentas queda bloqueado (password spraying). ... ok
+test_1_2_5_other_accounts_unaffected (tests.test_r1_03_lockout.Lockout.test_1_2_5_other_accounts_unaffected)
+1.2.5 Falso positivo (R1-03): bloquear est01 en h1 no afecta a doc01 en h2. ... ok
+test_1_2_6_concurrent_attempts_preserve_count (tests.test_r1_03_lockout.Lockout.test_1_2_6_concurrent_attempts_preserve_count)
+1.2.6 Concurrencia (R1-03): 12 hilos concurrentes registran 12 fallos sin perder intentos. ... ok
+test_1_2_7_sql_persistence_and_deterministic_locks (tests.test_r1_03_lockout.Lockout.test_1_2_7_sql_persistence_and_deterministic_locks)
+1.2.7 Integracion simulada (R1-03): MySQLFailureStore persiste en auth_events y sobrevive reinicio. ... ok
+test_2_1_1_admin_permit_teacher_deny_and_dti_separation (tests.test_r2_01_02_evaluate_access.EvaluateAccess.test_2_1_1_admin_permit_teacher_deny_and_dti_separation)
+2.1.1 Normal / invalido (R2-01): DTI permitido en consola_dti; docente y administrativo denegados. ... ok
+test_2_1_2_unknown_role_or_resource_denied (tests.test_r2_01_02_evaluate_access.EvaluateAccess.test_2_1_2_unknown_role_or_resource_denied)
+2.1.2 Limite (R2-02): rol inexistente o recurso fuera de inventario -> DENY por defecto. ... ok
+test_2_1_3_explicit_deny_beats_permit_in_matrix (tests.test_r2_01_02_evaluate_access.EvaluateAccess.test_2_1_3_explicit_deny_beats_permit_in_matrix)
+2.1.3 Normal (R2-01): si la matriz contiene PERMIT y DENY para el mismo par, gana DENY. ... ok
+test_2_1_4_full_four_role_matrix (tests.test_r2_01_02_evaluate_access.EvaluateAccess.test_2_1_4_full_four_role_matrix)
+2.1.4 Normal (R2-01/R2-02): matriz completa de 4 roles de campus x 4 recursos. ... ok
+test_2_1_5_dti_console_identity_and_authorized_binding (tests.test_r2_01_02_evaluate_access.EvaluateAccess.test_2_1_5_dti_console_identity_and_authorized_binding)
+2.1.5 Integracion simulada (R2-01): consola DTI vinculada a admin_accounts y red de gestion. ... ok
+test_2_1_6_load_access_matrix_from_sql_rows (tests.test_r2_01_02_evaluate_access.EvaluateAccess.test_2_1_6_load_access_matrix_from_sql_rows)
+2.1.6 Integracion simulada (R2-01/R2-02): construccion de AccessMatrix desde filas role_permissions. ... ok
+test_2_2_1_deny_wins_over_permit_in_sw2_table20 (tests.test_r2_03_translate_policy.TranslatePolicyMultitable.test_2_2_1_deny_wins_over_permit_in_sw2_table20)
+2.2.1 Normal (R2-03): con PERMIT y DENY solapados en sw2 tabla 20, prevalece DENY (prio 550 > 501). ... ok
+test_2_2_2_multitable_pipeline_matches_exact_session (tests.test_r2_03_translate_policy.TranslatePolicyMultitable.test_2_2_2_multitable_pipeline_matches_exact_session)
+2.2.2 Normal (R2-03): PERMIT genera tablas 10/20/30 en sw2 + transito sw1/sw3 sin atajos en tabla 0. ... ok
+test_2_2_3_duplicates_invalid_decisions_and_management_isolation (tests.test_r2_03_translate_policy.TranslatePolicyMultitable.test_2_2_3_duplicates_invalid_decisions_and_management_isolation)
+2.2.3 Limite / invalido (R2-03): sin duplicados, decision invalida rechazada y consola_dti sin flujos. ... ok
+test_2_2_4_lms_explicit_deny_clears_lms_bit_and_blocks_shared_rule (tests.test_r2_03_translate_policy.TranslatePolicyMultitable.test_2_2_4_lms_explicit_deny_clears_lms_bit_and_blocks_shared_rule)
+2.2.4 Limite (R2-03): DENY explicito sobre LMS apaga LMS_BIT y gana sobre lms-shared-sw2 (prio 400). ... ok
+test_2_2_5_renewal_and_failover_sw4_preserve_deny_precedence (tests.test_r2_03_translate_policy.TranslatePolicyMultitable.test_2_2_5_renewal_and_failover_sw4_preserve_deny_precedence)
+2.2.5 Integracion simulada (R2-03): renovacion gen 1->0 (501->500) y failover sw4 conservan DENY. ... ok
+
+----------------------------------------------------------------------
+Ran 26 tests in 6.744s
+
+OK
+

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{{ title }} · Consola DTI</title>
+  <link rel="stylesheet" href="{{ url_for('static',filename='admin.css') }}">
+</head>
+<body>
+  <header class="dti-bar">
+    <div class="dti-bar-inner">
+      <div class="dti-brand">
+        <div class="dti-mark">DTI</div>
+        <div>
+          <strong>Dirección de Tecnologías de la Información (DTI)</strong>
+          <small>Consola de Administración y Auditoría · 2026-2</small>
+        </div>
+      </div>
+      <span class="plane-badge">Consola de Operaciones</span>
+    </div>
+  </header>
+  <main class="wrap">
+    <section class="login-box">
+      <p class="tag">Notificación del sistema</p>
+      <h1>{{ title }}</h1>
+      <p>{{ message }}</p>
+      <a class="badge badge-info btn-link" href="{{ url_for('index') }}">Volver al panel DTI</a>
+    </section>
+  </main>
+  <footer>Consola DTI · Campus Virtual Universitario</footer>
+</body>
+</html>

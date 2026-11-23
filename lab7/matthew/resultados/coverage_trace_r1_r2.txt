@@ -1,0 +1,21 @@
+$ python -m trace --count --summary --missing -C .cover --module unittest discover -s tests -t .
+# Herramienta: Python stdlib trace (3.13.2)
+# Tipo de cobertura: lineas ejecutadas por modulo
+# Exit code: 0
+# Elapsed: 3.891 s
+
+lines   cov%   module   (path)
+    9   100%   access.__init__   (C:\Users\Usuario\OneDrive\Escritorio\PUCP\Ciclo 8\SDN\Labs\Lab7\lab7\matthew\codigo\access\__init__.py)
+   29   100%   access.auth   (C:\Users\Usuario\OneDrive\Escritorio\PUCP\Ciclo 8\SDN\Labs\Lab7\lab7\matthew\codigo\access\auth.py)
+   87    95%   access.authz   (C:\Users\Usuario\OneDrive\Escritorio\PUCP\Ciclo 8\SDN\Labs\Lab7\lab7\matthew\codigo\access\authz.py)
+   52    96%   access.dti   (C:\Users\Usuario\OneDrive\Escritorio\PUCP\Ciclo 8\SDN\Labs\Lab7\lab7\matthew\codigo\access\dti.py)
+   71   100%   access.lockout   (C:\Users\Usuario\OneDrive\Escritorio\PUCP\Ciclo 8\SDN\Labs\Lab7\lab7\matthew\codigo\access\lockout.py)
+   99    85%   access.mysql_adapters   (C:\Users\Usuario\OneDrive\Escritorio\PUCP\Ciclo 8\SDN\Labs\Lab7\lab7\matthew\codigo\access\mysql_adapters.py)
+   33    96%   access.passwords   (C:\Users\Usuario\OneDrive\Escritorio\PUCP\Ciclo 8\SDN\Labs\Lab7\lab7\matthew\codigo\access\passwords.py)
+  271    97%   access.translate   (C:\Users\Usuario\OneDrive\Escritorio\PUCP\Ciclo 8\SDN\Labs\Lab7\lab7\matthew\codigo\access\translate.py)
+    1   100%   tests.__init__   (C:\Users\Usuario\OneDrive\Escritorio\PUCP\Ciclo 8\SDN\Labs\Lab7\lab7\matthew\codigo\tests\__init__.py)
+   79    98%   tests.access_helpers   (C:\Users\Usuario\OneDrive\Escritorio\PUCP\Ciclo 8\SDN\Labs\Lab7\lab7\matthew\codigo\tests\access_helpers.py)
+   78    96%   tests.test_r1_01_02_validate_credentials   (C:\Users\Usuario\OneDrive\Escritorio\PUCP\Ciclo 8\SDN\Labs\Lab7\lab7\matthew\codigo\tests\test_r1_01_02_validate_credentials.py)
+   72    98%   tests.test_r1_03_lockout   (C:\Users\Usuario\OneDrive\Escritorio\PUCP\Ciclo 8\SDN\Labs\Lab7\lab7\matthew\codigo\tests\test_r1_03_lockout.py)
+   58    98%   tests.test_r2_01_02_evaluate_access   (C:\Users\Usuario\OneDrive\Escritorio\PUCP\Ciclo 8\SDN\Labs\Lab7\lab7\matthew\codigo\tests\test_r2_01_02_evaluate_access.py)
+  100    99%   tests.test_r2_03_translate_policy   (C:\Users\Usuario\OneDrive\Escritorio\PUCP\Ciclo 8\SDN\Labs\Lab7\lab7\matthew\codigo\tests\test_r2_03_translate_policy.py)

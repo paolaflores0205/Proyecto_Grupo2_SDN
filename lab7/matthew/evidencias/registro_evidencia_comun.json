@@ -1,0 +1,256 @@
+[
+  {
+    "case_id": "1.1.1 / R1-01",
+    "run_id": "lab7-matthew-phaseA-20261122-0018",
+    "category": "unitaria",
+    "version": {
+      "sha256_auth_py": "ca9945006a8ccf4d602221ac96fda7a1b5f065068f6e2006f532d3881e88bf48"
+    },
+    "source": "datos sinteticos controlados (MemoryUserStore + Werkzeug real)",
+    "input": {
+      "usernames": [
+        "est01",
+        "doc01",
+        "adm01",
+        "vis01"
+      ],
+      "password": "<REDACTED_TEST_FIXTURE>"
+    },
+    "expected": {
+      "ok": true,
+      "roles": [
+        "estudiante",
+        "docente",
+        "administrativo",
+        "visitante"
+      ]
+    },
+    "observed": {
+      "ok": true,
+      "roles": [
+        "estudiante",
+        "docente",
+        "administrativo",
+        "visitante"
+      ],
+      "werkzeug_scrypt_pbkdf2": "ok"
+    },
+    "decision": "PERMIT_AUTH",
+    "reason": "Acceso concedido",
+    "rule": null,
+    "effective": "No aplica (prueba unitaria de autenticacion)",
+    "timing": {
+      "start": "suite_start",
+      "end": "suite_end",
+      "clock": "time.monotonic",
+      "host": "local-win",
+      "unit": "s",
+      "elapsed_suite_s": 0.444
+    },
+    "result": "PASS",
+    "cleanup": "Sin cambios en VNRT (Fase A local)"
+  },
+  {
+    "case_id": "1.1.2 / R1-02",
+    "run_id": "lab7-matthew-phaseA-20261122-0018",
+    "category": "unitaria",
+    "version": {
+      "sha256_auth_py": "ca9945006a8ccf4d602221ac96fda7a1b5f065068f6e2006f532d3881e88bf48"
+    },
+    "source": "datos sinteticos controlados (MemoryUserStore + FakeMySQLCursor)",
+    "input": {
+      "cases": [
+        "clave_erronea",
+        "noexiste",
+        "vacios",
+        "None",
+        "len_257",
+        "SQLi_OR_1_1",
+        "SQLi_comment",
+        "baja01_inactiva"
+      ]
+    },
+    "expected": {
+      "ok": false,
+      "user_id": null,
+      "role": null,
+      "message": "Usuario o contraseña inválidos.",
+      "sqli_db_queries": 0
+    },
+    "observed": {
+      "ok": false,
+      "all_9_subcases_uniform_message": true,
+      "sqli_db_queries": 0,
+      "parameterized_sql_verified": true
+    },
+    "decision": "DENY_AUTH",
+    "reason": "Usuario o contraseña inválidos.",
+    "rule": null,
+    "effective": "No aplica (prueba unitaria / integracion simulada SQL)",
+    "timing": {
+      "clock": "time.monotonic",
+      "host": "local-win",
+      "unit": "s",
+      "elapsed_suite_s": 0.444
+    },
+    "result": "PASS",
+    "cleanup": "Sin cambios en VNRT (Fase A local)"
+  },
+  {
+    "case_id": "1.2.1-1.2.7 / R1-03",
+    "run_id": "lab7-matthew-phaseA-20261122-0018",
+    "category": "unitaria + integracion simulada SQL",
+    "version": {
+      "sha256_lockout_py": "74aaac7a122b680552b0b71337748dc2be6c450731a7b7cbf103a90a6749335a"
+    },
+    "source": "reloj inyectado (T0=2026-11-22T00:00Z), MemoryFailureStore y FakeMySQLCursor",
+    "input": {
+      "N": 8,
+      "window_s": 900,
+      "scenarios": [
+        "N-1=7",
+        "N=8",
+        "expiracion_971s",
+        "h1+h2_cuenta",
+        "h1_spraying",
+        "12_hilos_concurrentes",
+        "persistencia_SQL"
+      ]
+    },
+    "expected": {
+      "locked_at_7": false,
+      "locked_at_8": true,
+      "unlocked_after_900s": true,
+      "concurrent_lost": 0,
+      "sql_persisted_after_restart": true
+    },
+    "observed": {
+      "locked_at_7": false,
+      "locked_at_8": true,
+      "unlocked_after_900s": true,
+      "concurrent_count": 12,
+      "sql_persisted_after_restart": true
+    },
+    "decision": "LOCKOUT_429",
+    "reason": "Umbral N=8 en 900 s alcanzado por cuenta o terminal",
+    "rule": null,
+    "effective": "Persistencia validada contra FakeMySQLCursor (GET_LOCK determinista); prueba real en MySQL VNRT programada para Fase B",
+    "timing": {
+      "clock": "reloj inyectado UTC + time.monotonic",
+      "host": "local-win",
+      "unit": "s",
+      "elapsed_suite_s": 0.444
+    },
+    "result": "PASS",
+    "cleanup": "Sin cambios en VNRT (Fase A local)"
+  },
+  {
+    "case_id": "2.1.1-2.1.6 / R2-01 & R2-02",
+    "run_id": "lab7-matthew-phaseA-20261122-0018",
+    "category": "unitaria + integracion simulada DTI/SQL",
+    "version": {
+      "sha256_authz_py": "e53a41e688c8d23f55997fed1fb008de4862015dfea5b1700c7e269df1c7a578",
+      "sha256_dti_py": "6436741d4af8a5f872dfb4c3b03d589fa0a2241c79dc1fa796cb76babd78d701"
+    },
+    "source": "matriz real 4 roles x 4 recursos + DTIAccount + filas SQL role_permissions",
+    "input": {
+      "roles": [
+        "estudiante",
+        "docente",
+        "administrativo",
+        "visitante",
+        "admin_dti",
+        "Invitado"
+      ],
+      "resources": [
+        "lms",
+        "notas",
+        "administracion",
+        "consola_dti",
+        "servidor_x"
+      ]
+    },
+    "expected": {
+      "dti_console_admin": "PERMIT",
+      "dti_console_docente": "DENY",
+      "dti_console_administrativo": "DENY",
+      "acad_administracion_administrativo": "PERMIT",
+      "unknown_role_or_resource": "DENY"
+    },
+    "observed": {
+      "dti_console_admin": "PERMIT",
+      "dti_console_docente": "DENY",
+      "dti_console_administrativo": "DENY",
+      "acad_administracion_administrativo": "PERMIT",
+      "unknown_role_or_resource": "DENY",
+      "matrix_16_of_16": true
+    },
+    "decision": "PERMIT / DENY",
+    "reason": "Separacion estricta entre recurso academico administracion (h4:8443) y consola_dti (192.168.0.20:8443) + DENY por defecto",
+    "rule": null,
+    "effective": "Verificado en logica compartida y adaptador DTI/SQL; integracion real en VNRT programada para Fase B",
+    "timing": {
+      "clock": "time.monotonic",
+      "host": "local-win",
+      "unit": "s",
+      "elapsed_suite_s": 0.444
+    },
+    "result": "PASS",
+    "cleanup": "Sin cambios en VNRT (Fase A local)"
+  },
+  {
+    "case_id": "2.2.1-2.2.5 / R2-03",
+    "run_id": "lab7-matthew-phaseA-20261122-0018",
+    "category": "unitaria + integracion simulada multitabla",
+    "version": {
+      "sha256_translate_py": "d6b5d1079fd428626d6bada2d003db9de0d017a34a3bb4f4e9ff47e2def8a805"
+    },
+    "source": "topologia D real (sw2 tablas 0/10/20/30 + sw1/sw4/sw3), datos sinteticos de sesion",
+    "input": {
+      "client": "h2 (192.168.10.2, in_port=4)",
+      "overlapped_policies": [
+        "PERMIT notas",
+        "DENY notas"
+      ],
+      "renewal_generations": [
+        1,
+        0
+      ],
+      "failover_core": "sw4"
+    },
+    "expected": {
+      "sw2_table0_shortcuts": 0,
+      "table20_permit_prio": 501,
+      "table20_deny_prio": 550,
+      "effective_table20_decision": "DENY",
+      "transit_rules_on_deny": 0
+    },
+    "observed": {
+      "sw2_table0_shortcuts": 0,
+      "table20_permit_prio": 501,
+      "table20_deny_prio": 550,
+      "effective_table20_decision": "DENY",
+      "transit_rules_on_deny": 0,
+      "lms_bit_cleared_on_deny": true
+    },
+    "decision": "DENY_PRECEDENCE",
+    "reason": "En sw2 tabla 20, DENY (prio 550, actions='') prevalece sobre PERMIT (500/501) y sobre lms-shared-sw2 (400)",
+    "rule": {
+      "dpid": "00:00:00:00:00:00:00:02",
+      "table": 20,
+      "priority": 550,
+      "actions": "",
+      "hard_timeout": 30,
+      "match": "in_port+eth_src/dst+ipv4_src/dst+tcp_443+metadata"
+    },
+    "effective": "Resuelto por simulador de precedencia OVS effective_table20_decision(); verificacion OVS en vivo en Fase B",
+    "timing": {
+      "clock": "time.monotonic",
+      "host": "local-win",
+      "unit": "s",
+      "elapsed_suite_s": 0.444
+    },
+    "result": "PASS",
+    "cleanup": "Sin cambios en VNRT (Fase A local)"
+  }
+]

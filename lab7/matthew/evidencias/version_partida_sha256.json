@@ -1,0 +1,80 @@
+{
+  "captured_at_utc": "2026-11-22T05:12:41+00:00",
+  "host": "app (192.168.0.20)",
+  "python_version_app": "3.12.3",
+  "systemd_services": {
+    "sdn-portal": {
+      "status": "active",
+      "user": "sdnportal",
+      "working_directory": "/opt/sdn-portal-paso4",
+      "exec_start": "/usr/bin/gunicorn --workers 1 --threads 2 --bind 192.168.10.10:443 --certfile /etc/sdn-portal-paso4/server.crt --keyfile /etc/sdn-portal-paso4/server.key --ssl-version 2 --access-logfile - --error-logfile - --timeout 30 vnrt_mt_portal:app",
+      "call_chain": [
+        "vnrt_mt_portal.py",
+        "vnrt_avz7_portal.py",
+        "vnrt_portal_paso5.py",
+        "vnrt_portal_paso4.py"
+      ]
+    },
+    "sdn-r1": {
+      "status": "active",
+      "user": "sdnportal",
+      "working_directory": "/opt/sdn-portal-paso4",
+      "exec_start": "/usr/bin/python3 /opt/sdn-portal-paso4/vnrt_mt_adapter.py",
+      "call_chain": [
+        "vnrt_mt_adapter.py",
+        "vnrt_mt_red.py",
+        "vnrt_avz7_adapter.py",
+        "vnrt_avz7_red.py",
+        "vnrt_r1_paso5.py"
+      ]
+    },
+    "sdn-admin": {
+      "status": "active",
+      "user": "sdnportal",
+      "working_directory": "/opt/sdn-admin-paso7",
+      "exec_start": "/usr/bin/gunicorn --workers 1 --threads 2 --bind 192.168.0.20:8443 --certfile /etc/sdn-admin-paso7/server.crt --keyfile /etc/sdn-admin-paso7/server.key --timeout 30 --error-logfile - vnrt_avz7_admin:app",
+      "call_chain": [
+        "vnrt_avz7_admin.py",
+        "vnrt_admin_paso7.py"
+      ]
+    }
+  },
+  "sha256_baseline_app": {
+    "/home/ubuntu/sdn-r5/access/__init__.py": "611c2a4431cd3e89172fa3c447905a70ea866dd6c173ab531b5802f9c22af7c6",
+    "/home/ubuntu/sdn-r5/access/auth.py": "cd8292b0e376cee43bf45f9a989bb0a4d0957eaca9076ed720d53c43cebd7e8f",
+    "/home/ubuntu/sdn-r5/access/authz.py": "219a38f6136389584057e9515024e3d665c7448c6b042798c0f9bdb254a0d3b8",
+    "/home/ubuntu/sdn-r5/access/lockout.py": "d44d5f3f988f32b423cd5a1916f4c6bcf6cb379e5e185fb270e23b978fff5733",
+    "/home/ubuntu/sdn-r5/access/passwords.py": "546f0afc3e7ca6e1365e645119cbd9605acb18fa18a2c54df4304cce10df42e2",
+    "/home/ubuntu/sdn-r5/access/translate.py": "5b9e30cd8825720b0faeb2b800c27e6edae0542836fd2d7a5a17518754869f34",
+    "/opt/sdn-portal-paso4/vnrt_mt_portal.py": "413ae0ad2189ca6f117b2746bf3eda611db9e472d50e72c1dc06f522126bd0aa",
+    "/opt/sdn-portal-paso4/vnrt_avz7_portal.py": "b36ef0ef14fcb0d5a66088e94d1d68f36ac56d655c5c883954b359c29f86ee5f",
+    "/opt/sdn-portal-paso4/vnrt_portal_paso5.py": "bb2c6b343ae9fa33fcea17670dd43dd8df9015b0e00a2817f46f60419f7d2142",
+    "/opt/sdn-portal-paso4/vnrt_portal_paso4.py": "c2f34b89d64eb9fc3232df1a3565718848d6c4cd1a805f424b0d3419b05dccad",
+    "/opt/sdn-portal-paso4/vnrt_mt_red.py": "d655712dca8943a99c8a6c231feea4192edc0410bea4a037c1267c8409f05a25",
+    "/opt/sdn-portal-paso4/vnrt_mt_adapter.py": "ed3d92c7b493322b982bf69cc31320d4916defdd916d9dc2d79c43f07bd2d7fe",
+    "/opt/sdn-portal-paso4/vnrt_r1_paso5.py": "b4d2c0f3501b63130a7aed063000992159f0f8f2e27facd66c44c8b8169bbe02",
+    "/opt/sdn-admin-paso7/vnrt_avz7_admin.py": "ec582eaafd00f8c25ffbbed2877886c90e842eb722e370f21e74fe5ed0a22006",
+    "/opt/sdn-admin-paso7/vnrt_admin_paso7.py": "f72644a0daf7c438b033a84db0cc5ebe5ae302447dde91f57544c1edd845d541",
+    "/etc/sdn-g2/topology.json": "13a36032f3b221aef4d16897e1e221c43a8a227fca47628ccc79b34141066a5b"
+  },
+  "sha256_lab7_matthew_integrated": {
+    "codigo/access/__init__.py": "d8cf5056ecc90a1d81129357f6ff7bfcabf0310d0d6e46601ffa19b4ca4cf7d4",
+    "codigo/access/auth.py": "ca9945006a8ccf4d602221ac96fda7a1b5f065068f6e2006f532d3881e88bf48",
+    "codigo/access/authz.py": "d858e123d5b9baa39c9879d82be859d6b903e3ead3a67bb17e0496d68e85b541",
+    "codigo/access/dti.py": "6436741d4af8a5f872dfb4c3b03d589fa0a2241c79dc1fa796cb76babd78d701",
+    "codigo/access/lockout.py": "74aaac7a122b680552b0b71337748dc2be6c450731a7b7cbf103a90a6749335a",
+    "codigo/access/mysql_adapters.py": "aed9d8571f3ee759aa90c1bd157330559632731ef27cdd8cb8add839b2c6b38a",
+    "codigo/access/passwords.py": "c07342e0dff05c20f4deb5c8823ea042e0308d805c3c8d2e3da6a1cf930ffa56",
+    "codigo/access/translate.py": "183bfa83a37645017283732295e268804203c221ac725879e3699849cd5386b5",
+    "codigo/fase_b/desplegar_fase_b.py": "047f067178a971df978a8638cdde767c0c29519d47766f2240e7cc5af9d0724f",
+    "codigo/fase_b/verificar_integracion_vnrt.py": "45fdba73831575a22e3e8b9f65fe48b1eec2f84c9464d31ee5ceee178285d2fd",
+    "codigo/integracion/vnrt_mt_adapter.py": "e7c717b280d8910be9f75ff1ec19526251778ad4b1e3f44e2d73ae25a36f71e4",
+    "codigo/integracion/vnrt_portal_paso5.py": "efea2fb52ce11bebf90e51782c899ea69ff8e0531548a7cde5793e4a4a9e83fc",
+    "codigo/tests/__init__.py": "0817eff7ab34a5f0a2785c412803378acf9e05c6263fd2968176d9f8282f0943",
+    "codigo/tests/access_helpers.py": "c891451025252713d5d8745eb510ec8f58fa48216a95eec8be255aee4e99e65f",
+    "codigo/tests/test_r1_01_02_validate_credentials.py": "b7484a5707a1544fd278e2365bc2dc7fc26166a0438594e4a47cd00ccdba3bc8",
+    "codigo/tests/test_r1_03_lockout.py": "7e69ccf689c3816d942edd6f2877c51825e61feb5faa18dfd9cc9dcd0346e7d4",
+    "codigo/tests/test_r2_01_02_evaluate_access.py": "20244bea75752cf754c513483008d497df44b7ebf0f6de0558894ca45d37e569",
+    "codigo/tests/test_r2_03_translate_policy.py": "d754573f3ac96540b79db4653b3ead3bf0d9baaba33559d189bfe9a4b354a04c"
+  }
+}

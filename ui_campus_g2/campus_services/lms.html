@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Aula Virtual (LMS) · Campus Virtual Universitario</title>
+  <style>
+    :root{--navy:#0b2c52;--navy-2:#164173;--gold:#b88a1e;--bg:#f4f6fa;--surface:#fff;--ink:#162638;--muted:#52657a;--line:#d7e0eb;--soft:#e8eef6;--ok:#166534;--okbg:#dcfce7;--warn:#92400e;--warnbg:#fef3c7}
+    *{box-sizing:border-box}body{margin:0;font:15px/1.6 "Segoe UI",system-ui,Arial,sans-serif;color:var(--ink);background:var(--bg);min-height:100vh;display:flex;flex-direction:column}
+    code{font:12.5px Consolas,monospace;background:rgba(255,255,255,.15);color:#fff;padding:2px 6px;border-radius:4px}
+    .topbar{background:var(--navy);color:#fff;border-bottom:3px solid var(--gold)}
+    .topbar-inner{max-width:1120px;margin:0 auto;padding:15px 24px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+    .crest{width:42px;height:42px;border-radius:10px;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.26);display:grid;place-items:center;font-weight:800;font-size:15px}
+    .topbar strong{display:block;font-size:17px}.topbar small{display:block;font-size:12.5px;color:#c9d9ed}
+    .device-pill{margin-left:auto;font-size:12px;font-weight:600;padding:5px 12px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.24);color:#eaf2fc}
+    .wrap{max-width:1120px;width:100%;margin:0 auto;padding:26px 24px 48px;flex:1}
+    .crumb{font-size:13px;color:var(--muted);margin-bottom:14px}.crumb strong{color:var(--navy)}
+    .banner{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--navy);border-radius:12px;padding:22px 26px;display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;box-shadow:0 6px 22px rgba(11,44,82,.06)}
+    .banner h1{margin:0 0 4px;font-size:25px;color:var(--navy)}.banner p{margin:0;color:var(--muted);font-size:14.5px}
+    .badge{display:inline-block;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px}
+    .b-ok{background:var(--okbg);color:var(--ok)}.b-info{background:#e6eef8;color:var(--navy)}.b-warn{background:var(--warnbg);color:var(--warn)}
+    .tabs{margin-top:24px;position:relative}.tabs>input[type=radio]{position:absolute;opacity:0;pointer-events:none}
+    .tab-nav{display:flex;gap:6px;flex-wrap:wrap;border-bottom:2px solid var(--line);margin-bottom:20px}
+    .tab-nav label{padding:10px 18px;cursor:pointer;font-weight:600;font-size:14px;color:var(--muted);border-radius:8px 8px 0 0;border:1px solid transparent;border-bottom:0;position:relative;top:2px}
+    .tab-nav label:hover{background:#e9eff6;color:var(--navy)}
+    #t-cursos:checked~.tab-nav label[for=t-cursos],#t-material:checked~.tab-nav label[for=t-material],#t-eval:checked~.tab-nav label[for=t-eval],#t-anuncios:checked~.tab-nav label[for=t-anuncios]{background:var(--surface);color:var(--navy);border-color:var(--line);border-top:3px solid var(--gold)}
+    .panel{display:none}
+    #t-cursos:checked~#p-cursos,#t-material:checked~#p-material,#t-eval:checked~#p-eval,#t-anuncios:checked~#p-anuncios{display:block}
+    .grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+    .course{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 4px 14px rgba(11,44,82,.04);display:flex;flex-direction:column}
+    .course-top{background:linear-gradient(135deg,#0b2c52,#18487d);color:#fff;padding:16px 18px}
+    .course-top span{font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;opacity:.85;display:block}
+    .course-top strong{font-size:16px;display:block;margin-top:4px}
+    .course-body{padding:16px 18px;flex:1;display:flex;flex-direction:column;gap:10px;font-size:13.5px;color:var(--muted)}
+    .bar-track{height:7px;background:#e3ebf4;border-radius:99px;overflow:hidden}.bar-fill{height:100%;background:var(--navy-2)}
+    .w80{width:80%}.w72{width:72%}.w65{width:65%}
+    details.course-more{margin-top:auto;border-top:1px solid var(--soft);padding-top:10px}
+    details.course-more summary{cursor:pointer;font-weight:600;color:var(--navy);font-size:13px;list-style:none}
+    details.course-more summary::-webkit-details-marker{display:none}
+    details.course-more ul{margin:8px 0 0;padding-left:18px;font-size:12.5px}
+    .card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px 24px;box-shadow:0 4px 16px rgba(11,44,82,.04)}
+    table{width:100%;border-collapse:collapse;font-size:14px;margin-top:6px}
+    th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--soft)}
+    th{background:#f2f6fb;color:var(--navy);font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+    tr:last-child td{border-bottom:0}
+    .announce{padding:14px 0;border-bottom:1px solid var(--soft)}.announce:last-child{border-bottom:0}
+    .announce strong{display:block;color:var(--navy);margin-bottom:3px}.announce small{color:var(--muted)}
+    footer{background:#edf2f8;border-top:1px solid var(--line);padding:15px 24px;text-align:center;font-size:12.5px;color:var(--muted)}
+    @media(max-width:860px){.grid3{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="crest">LMS</div>
+      <div>
+        <strong>Aula Virtual · Campus Universitario</strong>
+        <small>Facultad de Ciencias e Ingeniería · Semestre Académico 2026-2</small>
+      </div>
+      <span class="device-pill">Equipo: <code>{{CLIENT_IP}}</code> · MAC: <code>{{CLIENT_MAC}}</code></span>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="crumb">Campus Virtual › <strong>Aula Virtual (LMS)</strong></div>
+
+    <section class="banner">
+      <div>
+        <h1>Mis cursos del semestre 2026-2</h1>
+        <p>Consulta materiales de clase, sílabos, anuncios docentes y calendario de evaluaciones.</p>
+      </div>
+      <span class="badge b-ok">Sesión académica activa</span>
+    </section>
+
+    <div class="tabs">
+      <input type="radio" name="lms-tab" id="t-cursos" checked>
+      <input type="radio" name="lms-tab" id="t-material">
+      <input type="radio" name="lms-tab" id="t-eval">
+      <input type="radio" name="lms-tab" id="t-anuncios">
+
+      <div class="tab-nav">
+        <label for="t-cursos">Mis cursos (3)</label>
+        <label for="t-material">Material y clases</label>
+        <label for="t-eval">Calendario de entregas</label>
+        <label for="t-anuncios">Anuncios (3)</label>
+      </div>
+
+      <section class="panel" id="p-cursos">
+        <div class="grid3">
+          <article class="course">
+            <div class="course-top">
+              <span>TEL354 · Horario H0892</span>
+              <strong>Redes Definidas por Software</strong>
+            </div>
+            <div class="course-body">
+              <div>Docente: Ing. C. Quispe · JP: W. Lavado</div>
+              <div>Unidad 12: Seguridad de red, automatización y pruebas unitarias.</div>
+              <div>Avance del curso: <strong>80 %</strong></div>
+              <div class="bar-track"><div class="bar-fill w80"></div></div>
+              <details class="course-more">
+                <summary>Ver actividades de la semana ›</summary>
+                <ul>
+                  <li>Guía de Laboratorio 7 publicada</li>
+                  <li>Informe previo — entrega martes 24 Nov</li>
+                  <li>Sesión de asesoría técnica grupal</li>
+                </ul>
+              </details>
+            </div>
+          </article>
+          <article class="course">
+            <div class="course-top">
+              <span>TEL321 · Horario H0511</span>
+              <strong>Seguridad en Redes y Sistemas</strong>
+            </div>
+            <div class="course-body">
+              <div>Docente: Mg. R. Mendoza</div>
+              <div>Módulo 9: Control de acceso por roles y protección perimetral.</div>
+              <div>Avance del curso: <strong>72 %</strong></div>
+              <div class="bar-track"><div class="bar-fill w72"></div></div>
+              <details class="course-more">
+                <summary>Ver actividades de la semana ›</summary>
+                <ul>
+                  <li>Lectura obligatoria: arquitecturas de defensa</li>
+                  <li>Práctica Calificada 3 — viernes 27 Nov</li>
+                </ul>
+              </details>
+            </div>
+          </article>
+          <article class="course">
+            <div class="course-top">
+              <span>TEL310 · Horario H0402</span>
+              <strong>Conmutación y Enrutamiento</strong>
+            </div>
+            <div class="course-body">
+              <div>Docente: Ing. M. Paredes</div>
+              <div>Módulo 8: Alta disponibilidad y recuperación ante fallas.</div>
+              <div>Avance del curso: <strong>65 %</strong></div>
+              <div class="bar-track"><div class="bar-fill w65"></div></div>
+              <details class="course-more">
+                <summary>Ver actividades de la semana ›</summary>
+                <ul>
+                  <li>Diapositivas de convergencia rápida</li>
+                  <li>Foro de discusión semanal abierto</li>
+                </ul>
+              </details>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel" id="p-material">
+        <div class="card">
+          <table>
+            <thead><tr><th>Curso</th><th>Material publicado</th><th>Semana</th><th>Estado</th></tr></thead>
+            <tbody>
+              <tr><td><strong>TEL354</strong></td><td>Guía de Laboratorio 7: Implementación y Pruebas Unitarias</td><td>Semana 13</td><td><span class="badge b-ok">Disponible</span></td></tr>
+              <tr><td><strong>TEL354</strong></td><td>Presentación de clase — Unidad 12</td><td>Semana 12</td><td><span class="badge b-ok">Disponible</span></td></tr>
+              <tr><td><strong>TEL321</strong></td><td>Separata: Gestión de identidades y control de acceso</td><td>Semana 12</td><td><span class="badge b-info">Lectura</span></td></tr>
+              <tr><td><strong>TEL310</strong></td><td>Taller guiado: Conmutación de rutas de respaldo</td><td>Semana 11</td><td><span class="badge b-ok">Disponible</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel" id="p-eval">
+        <div class="card">
+          <table>
+            <thead><tr><th>Evaluación</th><th>Curso</th><th>Fecha límite</th><th>Estado</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Informe Previo Laboratorio 7</strong></td><td>TEL354</td><td>24 Nov 2026 · 14:00</td><td><span class="badge b-warn">Próxima entrega</span></td></tr>
+              <tr><td><strong>Avance 12 — Proyecto Integrador</strong></td><td>TEL354</td><td>20 Nov 2026</td><td><span class="badge b-ok">Entregado</span></td></tr>
+              <tr><td><strong>Práctica Calificada 3</strong></td><td>TEL321</td><td>27 Nov 2026 · 18:00</td><td><span class="badge b-info">Programada</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel" id="p-anuncios">
+        <div class="card">
+          <div class="announce">
+            <strong>TEL354 · Presentación de Laboratorio 7</strong>
+            <p>La exposición y revisión del módulo implementado se realizará el martes 24 de noviembre en el horario habitual de práctica.</p>
+            <small>Publicado por Jefatura de Práctica · 21 Nov 2026</small>
+          </div>
+          <div class="announce">
+            <strong>Facultad · Encuesta de evaluación docente 2026-2</strong>
+            <p>Se encuentra habilitado el periodo de retroalimentación académica del semestre actual hasta el 5 de diciembre.</p>
+            <small>Publicado por Secretaría Académica · 19 Nov 2026</small>
+          </div>
+          <div class="announce">
+            <strong>TEL321 · Sesión de repaso previa a la PC3</strong>
+            <p>El material de ejercicios resueltos ya fue cargado en la pestaña de Material y clases.</p>
+            <small>Publicado por Mg. R. Mendoza · 18 Nov 2026</small>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>Aula Virtual (LMS) · Campus Virtual Universitario · Equipo verificado: {{CLIENT_IP}} ({{CLIENT_MAC}})</footer>
+</body>
+</html>

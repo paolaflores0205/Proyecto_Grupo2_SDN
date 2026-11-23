@@ -1,0 +1,45 @@
+{
+  "run_id": "lab7-matthew-phaseA-20261122-0018",
+  "phase": "Fase A (local, sin modificar VNRT)",
+  "tests_total": 26,
+  "tests_pass": 26,
+  "tests_fail": 0,
+  "tests_skipped": 0,
+  "coverage_tool": "python -m trace --count --summary --missing",
+  "coverage_type": "lineas ejecutadas por modulo",
+  "coverage_access_modules": {
+    "access.__init__": {
+      "lines": 9,
+      "cov_pct": 100
+    },
+    "access.auth": {
+      "lines": 29,
+      "cov_pct": 100
+    },
+    "access.authz": {
+      "lines": 87,
+      "cov_pct": 95
+    },
+    "access.dti": {
+      "lines": 52,
+      "cov_pct": 96
+    },
+    "access.lockout": {
+      "lines": 71,
+      "cov_pct": 100
+    },
+    "access.mysql_adapters": {
+      "lines": 99,
+      "cov_pct": 85
+    },
+    "access.passwords": {
+      "lines": 33,
+      "cov_pct": 96
+    },
+    "access.translate": {
+      "lines": 268,
+      "cov_pct": 98
+    }
+  },
+  "note_portal_coverage": "Las pruebas unitarias cubren el paquete compartido access/ (648 lineas ejecutables, ~95.7% ponderado). Los wrappers Flask/daemon de produccion (integracion/vnrt_portal_paso5.py y vnrt_mt_adapter.py) se validaran en vivo contra MySQL/Floodlight/OVS durante la Fase B (ventana VNRT)."
+}

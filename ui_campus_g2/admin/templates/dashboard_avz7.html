@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Panel de Operaciones DTI · Campus Virtual</title>
+  <link rel="stylesheet" href="{{ url_for('static',filename='admin.css') }}">
+</head>
+<body>
+  <header class="dti-bar">
+    <div class="dti-bar-inner">
+      <div class="dti-brand">
+        <div class="dti-mark">DTI</div>
+        <div>
+          <strong>Dirección de Tecnologías de la Información (DTI)</strong>
+          <small>Operador: {{ user.username }} · Sesión hasta {{ user.expires_at }} UTC</small>
+        </div>
+      </div>
+      <div class="dti-actions">
+        <span class="plane-badge">Consola de Operaciones</span>
+        <form method="post" action="{{ url_for('logout') }}">
+          <input type="hidden" name="csrf" value="{{ csrf }}">
+          <button class="bar-btn" type="submit">Cerrar sesión DTI</button>
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <p class="notice">
+      Desde esta consola puedes supervisar sesiones activas por dispositivo, revocar accesos de forma selectiva,
+      administrar perfiles y permisos de los servicios del campus y consultar las bitácoras de auditoría.
+    </p>
+
+    <div class="kpi-grid">
+      <div class="kpi">
+        <span>Sesiones activas</span>
+        <strong>{{ sessions|length }}</strong>
+        <small>Dispositivos conectados</small>
+      </div>
+      <div class="kpi">
+        <span>Reglas de acceso</span>
+        <strong>{{ policies|length }}</strong>
+        <small>Perfil × servicio del campus</small>
+      </div>
+      <div class="kpi">
+        <span>Cuentas registradas</span>
+        <strong>{{ users|length }}</strong>
+        <small>Usuarios del Campus Virtual</small>
+      </div>
+      <div class="kpi">
+        <span>Eventos auditados</span>
+        <strong>{{ events|length + auth|length }}</strong>
+        <small>Operaciones DTI e ingresos</small>
+      </div>
+    </div>
+
+    <div class="tabs">
+      <input type="radio" name="dti-tab" id="tab-sessions" checked>
+      <input type="radio" name="dti-tab" id="tab-policies">
+      <input type="radio" name="dti-tab" id="tab-users">
+      <input type="radio" name="dti-tab" id="tab-audit">
+
+      <div class="tab-nav">
+        <label for="tab-sessions">Sesiones activas ({{ sessions|length }})</label>
+        <label for="tab-policies">Permisos por perfil</label>
+        <label for="tab-users">Cuentas de usuarios ({{ users|length }})</label>
+        <label for="tab-audit">Auditoría y accesos</label>
+      </div>
+
+      <section class="tab-panel" id="panel-sessions">
+        <h2>Sesiones activas por dispositivo</h2>
+        <p>Revocar una sesión cierra el acceso únicamente de ese dispositivo sin interrumpir a los demás usuarios.</p>
+        <div class="filter-bar">
+          <input type="search" id="f-sessions-q" placeholder="Buscar por usuario o IP del equipo...">
+          <button type="button" class="secondary" id="f-sessions-clear">Limpiar</button>
+          <span class="filter-count" id="f-sessions-count"></span>
+        </div>
+        <div class="scroll">
+          <table id="tbl-sessions">
+            <thead>
+              <tr><th>Usuario</th><th>IP del equipo</th><th>Vence (UTC)</th><th>Estado</th><th>Acción</th></tr>
+            </thead>
+            <tbody>
+              {% for s in sessions %}
+              <tr data-row="1" data-search="{{ s.username }} {{ s.terminal_ip }} {{ s.session_state }} {{ s.enforcement_state }}">
+                <td><strong>{{ s.username }}</strong></td>
+                <td><code>{{ s.terminal_ip }}</code></td>
+                <td>{{ s.expires_at }}</td>
+                <td>
+                  <span class="badge badge-ok">{{ s.session_state }}</span>
+                  <span class="badge badge-info">{{ s.enforcement_state }}</span>
+                </td>
+                <td>
+                  <form method="post" action="{{ url_for('revoke') }}">
+                    <input type="hidden" name="csrf" value="{{ csrf }}">
+                    <input type="hidden" name="session_id" value="{{ s.session_id }}">
+                    <button class="danger" type="submit">Revocar solo esta sesión</button>
+                  </form>
+                </td>
+              </tr>
+              {% else %}
+              <tr><td colspan="5">No hay sesiones activas en este momento.</td></tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="panel-policies">
+        <h2>Permisos de acceso por perfil</h2>
+        <p>Controla qué perfiles pueden ingresar a cada servicio del Campus Virtual.</p>
+        <div class="filter-bar">
+          <input type="search" id="f-policies-q" placeholder="Buscar por perfil o servicio...">
+          <select id="f-policies-role" aria-label="Filtrar por perfil">
+            <option value="all">Todos los perfiles</option>
+            {% for r in roles %}
+            <option value="{{ r.label }}">{{ r.label }}</option>
+            {% endfor %}
+          </select>
+          <select id="f-policies-state" aria-label="Filtrar por estado">
+            <option value="all">Todos los estados</option>
+            <option value="permitido">Permitido</option>
+            <option value="bloqueado">Bloqueado</option>
+          </select>
+          <button type="button" class="secondary" id="f-policies-clear">Limpiar</button>
+          <span class="filter-count" id="f-policies-count"></span>
+        </div>
+        <div class="scroll">
+          <table id="tbl-policies">
+            <thead>
+              <tr><th>Perfil</th><th>Servicio</th><th>Política actual</th><th>Acción</th></tr>
+            </thead>
+            <tbody>
+              {% for p in policies %}
+              <tr data-row="1" data-role="{{ p.role }}" data-state="{{ 'permitido' if p.allowed else 'bloqueado' }}" data-search="{{ p.role }} {{ p.resource }}">
+                <td><strong>{{ p.role }}</strong></td>
+                <td>{{ p.resource }}</td>
+                <td>
+                  <span class="badge {{ 'badge-ok' if p.allowed else 'badge-deny' }}">
+                    {{ 'Permitido' if p.allowed else 'Bloqueado' }}
+                  </span>
+                </td>
+                <td>
+                  {% if p.deployment_state == 'active' %}
+                  <form method="post" action="{{ url_for('policy') }}">
+                    <input type="hidden" name="csrf" value="{{ csrf }}">
+                    <input type="hidden" name="role_id" value="{{ p.role_id }}">
+                    <input type="hidden" name="resource_id" value="{{ p.resource_id }}">
+                    <input type="hidden" name="expected" value="{{ p.allowed }}">
+                    <input type="hidden" name="allowed" value="{{ 0 if p.allowed else 1 }}">
+                    <button class="{{ 'danger' if p.allowed else 'primary' }}" type="submit">
+                      {{ 'Bloquear' if p.allowed else 'Permitir' }}
+                    </button>
+                  </form>
+                  {% else %}
+                  <span class="badge badge-warn">No disponible</span>
+                  {% endif %}
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="panel-users">
+        <h2>Cuentas de usuarios del Campus Virtual</h2>
+        <p>Modificar el perfil o deshabilitar una cuenta cierra automáticamente todas sus sesiones vigentes.</p>
+        <div class="filter-bar">
+          <input type="search" id="f-users-q" placeholder="Buscar por usuario o nombre...">
+          <select id="f-users-role" aria-label="Filtrar por perfil">
+            <option value="all">Todos los perfiles</option>
+            {% for r in roles %}
+            <option value="{{ r.label }}">{{ r.label }}</option>
+            {% endfor %}
+          </select>
+          <select id="f-users-active" aria-label="Filtrar por estado">
+            <option value="all">Todos los estados</option>
+            <option value="activo">Activos</option>
+            <option value="deshabilitado">Deshabilitados</option>
+          </select>
+          <button type="button" class="secondary" id="f-users-clear">Limpiar</button>
+          <span class="filter-count" id="f-users-count"></span>
+        </div>
+        <div class="scroll">
+          <table id="tbl-users">
+            <thead>
+              <tr><th>Usuario</th><th>Perfil y estado</th><th>Acción</th></tr>
+            </thead>
+            <tbody>
+              {% for u in users %}
+              <tr data-row="1" data-role="{{ u.role }}" data-active="{{ 'activo' if u.active else 'deshabilitado' }}" data-search="{{ u.username }} {{ u.display_name }} {{ u.role }}">
+                <td><strong>{{ u.username }}</strong><br><small class="sub-muted">{{ u.display_name }}</small></td>
+                <td>
+                  <form id="u{{ u.id }}" method="post" action="{{ url_for('change_user') }}">
+                    <input type="hidden" name="csrf" value="{{ csrf }}">
+                    <input type="hidden" name="user_id" value="{{ u.id }}">
+                    <input type="hidden" name="expected_role" value="{{ u.role_id }}">
+                    <input type="hidden" name="expected_active" value="{{ u.active }}">
+                    <div class="inline-controls">
+                      <select name="role_id">
+                        {% for r in roles %}
+                        <option value="{{ r.id }}" {% if r.id == u.role_id %}selected{% endif %}>{{ r.label }}</option>
+                        {% endfor %}
+                      </select>
+                      <select name="active">
+                        <option value="1" {% if u.active %}selected{% endif %}>Activo</option>
+                        <option value="0" {% if not u.active %}selected{% endif %}>Deshabilitado</option>
+                      </select>
+                    </div>
+                  </form>
+                </td>
+                <td><button class="secondary" form="u{{ u.id }}" type="submit">Guardar y revocar sesiones</button></td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="panel-audit">
+        <h2>Auditoría de operaciones DTI</h2>
+        <div class="filter-bar">
+          <input type="search" id="f-events-q" placeholder="Buscar por operador, acción o destino...">
+          <select id="f-events-action" aria-label="Filtrar acción DTI">
+            <option value="all">Todas las acciones</option>
+            <option value="session_revoke">Revocación de sesión</option>
+            <option value="policy_change">Cambio de permiso</option>
+            <option value="user_update">Cambio de usuario</option>
+            <option value="login">Accesos DTI</option>
+          </select>
+          <button type="button" class="secondary" id="f-events-clear">Limpiar</button>
+          <span class="filter-count" id="f-events-count"></span>
+        </div>
+        <div class="scroll">
+          <table id="tbl-events">
+            <thead>
+              <tr><th>Fecha (UTC)</th><th>Operador</th><th>Acción / destino</th><th>Detalle del cambio</th></tr>
+            </thead>
+            <tbody>
+              {% for e in events %}
+              <tr data-row="1" data-action="{{ e.action }}" data-search="{{ e.occurred_at }} {{ e.actor }} {{ e.action }} {{ e.target }} {{ e.before_json or '' }} {{ e.after_json or '' }}">
+                <td>{{ e.occurred_at }}</td>
+                <td><strong>{{ e.actor }}</strong></td>
+                <td><code>{{ e.action }}</code> · {{ e.target }}</td>
+                <td><code>{{ e.before_json or '—' }}</code> → <code>{{ e.after_json or '—' }}</code></td>
+              </tr>
+              {% else %}
+              <tr><td colspan="4">Sin eventos DTI registrados.</td></tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Registro de ingresos al Campus Virtual</h3>
+        <div class="filter-bar">
+          <input type="search" id="f-auth-q" placeholder="Buscar por usuario, IP del equipo o resultado...">
+          <select id="f-auth-outcome" aria-label="Filtrar resultado">
+            <option value="all">Todos los resultados</option>
+            <option value="valid">Ingresos válidos</option>
+            <option value="invalid">Intentos fallidos</option>
+            <option value="logout">Cierres de sesión</option>
+          </select>
+          <button type="button" class="secondary" id="f-auth-clear">Limpiar</button>
+          <span class="filter-count" id="f-auth-count"></span>
+        </div>
+        <div class="scroll">
+          <table id="tbl-auth">
+            <thead>
+              <tr><th>Fecha (UTC)</th><th>Usuario</th><th>IP del equipo</th><th>Resultado</th></tr>
+            </thead>
+            <tbody>
+              {% for a in auth %}
+              <tr data-row="1" data-outcome="{{ a.outcome }}" data-search="{{ a.occurred_at }} {{ a.username }} {{ a.terminal_ip }} {{ a.outcome }}">
+                <td>{{ a.occurred_at }}</td>
+                <td><strong>{{ a.username }}</strong></td>
+                <td><code>{{ a.terminal_ip }}</code></td>
+                <td>
+                  <span class="badge {{ 'badge-ok' if 'valid' in a.outcome else ('badge-deny' if 'invalid' in a.outcome or 'failed' in a.outcome else 'badge-info') }}">
+                    {{ a.outcome }}
+                  </span>
+                </td>
+              </tr>
+              {% else %}
+              <tr><td colspan="4">Sin ingresos registrados.</td></tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>Consola DTI · Dirección de Tecnologías de la Información · Semestre 2026-2</footer>
+  <script src="{{ url_for('static',filename='admin_filter.js') }}" defer></script>
+</body>
+</html>

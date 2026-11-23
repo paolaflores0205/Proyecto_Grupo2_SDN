@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Mis Servicios · Campus Virtual Universitario</title>
+  <link rel="stylesheet" href="/static/portal.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand-crest">CV</div>
+      <div class="brand-title">
+        <strong>Campus Virtual Universitario</strong>
+        <small>Panel principal de servicios · Semestre 2026-2</small>
+      </div>
+      <div class="topbar-right">
+        <span class="device-pill"><span class="pill-dot"></span>{{ user.username }} · {{ user.role_label }}</span>
+        <form action="/logout" method="post">
+          <input type="hidden" name="csrf" value="{{ csrf }}">
+          <button class="topbar-btn" type="submit">Cerrar sesión</button>
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero-bar">
+      <div>
+        <p class="eyebrow">Sesión activa</p>
+        <h1>Hola, {{ user.display_name }}</h1>
+        <div class="meta-row">
+          <span>Usuario: <strong>{{ user.username }}</strong></span>
+          <span>Perfil: <strong id="verified-role">{{ user.role_label }}</strong></span>
+          <span>Sesión válida hasta: <strong>{{ user.expires_at }} UTC</strong></span>
+        </div>
+      </div>
+      <form action="/logout" method="post">
+        <input type="hidden" name="csrf" value="{{ csrf }}">
+        <button class="secondary" type="submit">Cerrar sesión</button>
+      </form>
+    </section>
+
+    <div class="device-check">
+      <strong>Comprobación de equipo conectado</strong>
+      <div class="device-check-values">
+        <span>IP: <code>{{ user.terminal_ip }}</code></span>
+        <span>MAC: <code>{{ user.terminal_mac }}</code></span>
+      </div>
+    </div>
+
+    <h2>Plataformas disponibles para tu perfil</h2>
+    <p>Selecciona un servicio habilitado para abrir tu espacio de trabajo.</p>
+
+    <div class="resource-cards">
+      {% for resource in resources %}
+      <article class="res-card {{ 'is-active' if resource.effective_state == 'active' else 'is-denied' }}">
+        <div>
+          <div class="res-head">
+            <h3>{{ resource.label }}</h3>
+            {% if resource.effective_state == 'active' %}
+            <span class="badge badge-ok">Disponible</span>
+            {% elif resource.effective_state == 'denied' %}
+            <span class="badge badge-deny">No disponible</span>
+            {% else %}
+            <span class="badge badge-warn">Verificando</span>
+            {% endif %}
+          </div>
+          {% if resource.code == 'lms' %}
+          <p class="res-desc">Espacio de aprendizaje en línea para cursos del semestre.</p>
+          <ul class="res-features">
+            <li>Cursos matriculados y sílabos</li>
+            <li>Presentaciones, guías y anuncios</li>
+            <li>Calendario de entregas y prácticas</li>
+          </ul>
+          {% elif resource.code == 'notas' %}
+          <p class="res-desc">Plataforma exclusiva de gestión de calificaciones para docentes.</p>
+          <ul class="res-features">
+            <li>Actas de evaluación por curso</li>
+            <li>Registro de prácticas y exámenes</li>
+            <li>Consolidado y asistencia del ciclo</li>
+          </ul>
+          {% elif resource.code == 'administracion' %}
+          <p class="res-desc">Gestión operativa de secretaría académica y mesa de partes.</p>
+          <ul class="res-features">
+            <li>Bandeja de expedientes y trámites</li>
+            <li>Control de matrícula y rectificaciones</li>
+            <li>Emisión de constancias y certificados</li>
+          </ul>
+          {% else %}
+          <p class="res-desc">Servicio académico del campus universitario.</p>
+          {% endif %}
+        </div>
+        <div class="res-foot">
+          <span class="badge {{ 'badge-warn' if resource.privileged else 'badge-info' }}">
+            {{ 'Acceso restringido' if resource.privileged else 'Servicio general' }}
+          </span>
+          {% if resource.effective_state == 'active' %}
+          {% set is_tunnel = request.host.startswith('localhost') or request.host.startswith('127.0.0.1') %}
+          {% set tunnel_ports = {'lms': 9447, 'notas': 9445, 'administracion': 9446} %}
+          {% if is_tunnel and resource.code in tunnel_ports %}
+          <a class="btn" href="https://localhost:{{ tunnel_ports[resource.code] }}/" target="_blank" rel="noopener">Ingresar</a>
+          {% else %}
+          <a class="btn" href="https://{{ resource.ip_address }}{{ ':' ~ resource.port if resource.port != 443 else '' }}/" target="_blank" rel="noopener">Ingresar</a>
+          {% endif %}
+          {% else %}
+          <span class="res-locked">Restringido por perfil</span>
+          {% endif %}
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+
+    <section class="card">
+      <h2>Resumen de accesos de tu cuenta</h2>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Servicio</th>
+              <th>Tipo de acceso</th>
+              <th>Permiso asignado</th>
+              <th>Estado actual</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for resource in resources %}
+            <tr>
+              <td><strong>{{ resource.label }}</strong></td>
+              <td>{{ 'Restringido por perfil' if resource.privileged else 'Académico general' }}</td>
+              <td>{{ 'Autorizado' if resource.allowed else 'No autorizado' }}</td>
+              <td id="access-{{ resource.code }}">
+                {% if resource.effective_state == 'active' %}
+                <span class="badge badge-ok">Permitido</span>
+                {% elif resource.effective_state == 'denied' %}
+                <span class="badge badge-deny">Bloqueado</span>
+                {% else %}
+                <span class="badge badge-warn">Pendiente</span>
+                {% endif %}
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Campus Virtual Universitario · Semestre 2026-2 · Equipo verificado: {{ user.terminal_ip }} ({{ user.terminal_mac }})
+  </footer>
+</body>
+</html>

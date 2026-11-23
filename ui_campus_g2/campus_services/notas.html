@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Registro de Notas · Campus Virtual Universitario</title>
+  <style>
+    :root{--navy:#13385c;--accent:#0e6478;--gold:#b88a1e;--bg:#f4f6fa;--surface:#fff;--ink:#162638;--muted:#52657a;--line:#d7e0eb;--soft:#e8eef6;--ok:#166534;--okbg:#dcfce7;--warn:#92400e;--warnbg:#fef3c7;--info:#1e40af;--infobg:#dbeafe}
+    *{box-sizing:border-box}body{margin:0;font:15px/1.6 "Segoe UI",system-ui,Arial,sans-serif;color:var(--ink);background:var(--bg);min-height:100vh;display:flex;flex-direction:column}
+    code{font:12.5px Consolas,monospace;background:#edf2f8;color:var(--navy);padding:2px 6px;border-radius:4px}
+    .topbar{background:var(--navy);color:#fff;border-bottom:3px solid var(--gold)}
+    .topbar-inner{max-width:1120px;margin:0 auto;padding:15px 24px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+    .topbar code{background:rgba(255,255,255,.15);color:#fff}
+    .crest{width:42px;height:42px;border-radius:10px;background:rgba(184,138,30,.22);border:1px solid rgba(184,138,30,.55);color:#f9e29c;display:grid;place-items:center;font-weight:800;font-size:14px}
+    .topbar strong{display:block;font-size:17px}.topbar small{display:block;font-size:12.5px;color:#c9d9ed}
+    .device-pill{margin-left:auto;font-size:12px;font-weight:600;padding:5px 12px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.24);color:#eaf2fc}
+    .wrap{max-width:1120px;width:100%;margin:0 auto;padding:26px 24px 48px;flex:1}
+    .crumb{font-size:13px;color:var(--muted);margin-bottom:14px}.crumb strong{color:var(--navy)}
+    .kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:22px}
+    .kpi{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:15px 18px}
+    .kpi span{display:block;font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+    .kpi strong{display:block;font-size:23px;color:var(--navy);margin-top:4px}
+    .tabs{position:relative}.tabs>input[type=radio]{position:absolute;opacity:0;pointer-events:none}
+    .tab-nav{display:flex;gap:6px;flex-wrap:wrap;border-bottom:2px solid var(--line);margin-bottom:20px}
+    .tab-nav label{padding:10px 18px;cursor:pointer;font-weight:600;font-size:14px;color:var(--muted);border-radius:8px 8px 0 0;border:1px solid transparent;border-bottom:0;position:relative;top:2px}
+    #n-actas:checked~.tab-nav label[for=n-actas],#n-asist:checked~.tab-nav label[for=n-asist],#n-resumen:checked~.tab-nav label[for=n-resumen]{background:var(--surface);color:var(--navy);border-color:var(--line);border-top:3px solid var(--accent)}
+    .panel{display:none}#n-actas:checked~#pn-actas,#n-asist:checked~#pn-asist,#n-resumen:checked~#pn-resumen{display:block}
+    .card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px 24px;box-shadow:0 4px 16px rgba(19,56,92,.05)}
+    .card h2{margin:0 0 6px;font-size:19px;color:var(--navy)}.card p{margin:0 0 14px;color:var(--muted);font-size:14px}
+    .scroll{overflow-x:auto}
+    table{width:100%;border-collapse:collapse;font-size:14px}
+    th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--soft)}
+    th{background:#f2f6fb;color:var(--navy);font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+    tr:last-child td{border-bottom:0}
+    .badge{display:inline-block;font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px}
+    .b-ok{background:var(--okbg);color:var(--ok)}.b-warn{background:var(--warnbg);color:var(--warn)}.b-info{background:var(--infobg);color:var(--info)}
+    footer{background:#edf2f8;border-top:1px solid var(--line);padding:15px 24px;text-align:center;font-size:12.5px;color:var(--muted)}
+    @media(max-width:780px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="crest">DOC</div>
+      <div>
+        <strong>Sistema de Registro de Notas Académicas</strong>
+        <small>Módulo exclusivo para docentes · Semestre 2026-2</small>
+      </div>
+      <span class="device-pill">Equipo: <code>{{CLIENT_IP}}</code> · MAC: <code>{{CLIENT_MAC}}</code></span>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="crumb">Campus Virtual › Servicios Docentes › <strong>Registro de Notas</strong></div>
+
+    <div class="kpis">
+      <div class="kpi"><span>Curso asignado</span><strong>TEL354 · H0892</strong></div>
+      <div class="kpi"><span>Estudiantes en acta</span><strong>4 (demo)</strong></div>
+      <div class="kpi"><span>Promedio parcial</span><strong>16.5 / 20</strong></div>
+      <div class="kpi"><span>Estado de acta</span><strong>Habilitada</strong></div>
+    </div>
+
+    <div class="tabs">
+      <input type="radio" name="n-tab" id="n-actas" checked>
+      <input type="radio" name="n-tab" id="n-asist">
+      <input type="radio" name="n-tab" id="n-resumen">
+
+      <div class="tab-nav">
+        <label for="n-actas">Acta de calificaciones</label>
+        <label for="n-asist">Control de asistencia</label>
+        <label for="n-resumen">Ponderación del curso</label>
+      </div>
+
+      <section class="panel" id="pn-actas">
+        <div class="card">
+          <h2>Acta de calificaciones — TEL354 (Horario H0892)</h2>
+          <p>Registro académico de evaluaciones del semestre en curso (datos de demostración en modo lectura).</p>
+          <div class="scroll">
+            <table>
+              <thead><tr><th>Código</th><th>Estudiante</th><th>Lab 5</th><th>Lab 6</th><th>Parcial</th><th>Promedio</th><th>Estado</th></tr></thead>
+              <tbody>
+                <tr><td><code>20260001</code></td><td>Estudiante Demo 01</td><td>17</td><td>18</td><td>16</td><td><strong>16.8</strong></td><td><span class="badge b-ok">Publicado</span></td></tr>
+                <tr><td><code>20260002</code></td><td>Estudiante Demo 02</td><td>16</td><td>17</td><td>17</td><td><strong>16.7</strong></td><td><span class="badge b-ok">Publicado</span></td></tr>
+                <tr><td><code>20260003</code></td><td>Estudiante Demo 03</td><td>15</td><td>16</td><td>16</td><td><strong>15.7</strong></td><td><span class="badge b-ok">Publicado</span></td></tr>
+                <tr><td><code>20260004</code></td><td>Estudiante Demo 04</td><td>18</td><td>17</td><td>17</td><td><strong>17.2</strong></td><td><span class="badge b-warn">Pendiente Lab 7</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="pn-asist">
+        <div class="card">
+          <h2>Control de asistencia — Semanas 1 a 12</h2>
+          <p>Seguimiento acumulado de asistencia a sesiones teóricas y de laboratorio.</p>
+          <div class="scroll">
+            <table>
+              <thead><tr><th>Código</th><th>Estudiante</th><th>Sesiones asistidas</th><th>Porcentaje</th><th>Situación</th></tr></thead>
+              <tbody>
+                <tr><td><code>20260001</code></td><td>Estudiante Demo 01</td><td>24 / 24</td><td>100 %</td><td><span class="badge b-ok">Regular</span></td></tr>
+                <tr><td><code>20260002</code></td><td>Estudiante Demo 02</td><td>23 / 24</td><td>96 %</td><td><span class="badge b-ok">Regular</span></td></tr>
+                <tr><td><code>20260003</code></td><td>Estudiante Demo 03</td><td>21 / 24</td><td>88 %</td><td><span class="badge b-ok">Regular</span></td></tr>
+                <tr><td><code>20260004</code></td><td>Estudiante Demo 04</td><td>22 / 24</td><td>92 %</td><td><span class="badge b-ok">Regular</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="pn-resumen">
+        <div class="card">
+          <h2>Ponderación y calendario de cierre de actas</h2>
+          <div class="scroll">
+            <table>
+              <thead><tr><th>Evaluación</th><th>Peso</th><th>Fecha de cierre</th><th>Estado</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Examen Parcial</strong></td><td>30 %</td><td>18 Oct 2026</td><td><span class="badge b-ok">Cerrado</span></td></tr>
+                <tr><td><strong>Laboratorios 1–6</strong></td><td>40 %</td><td>15 Nov 2026</td><td><span class="badge b-ok">Publicado</span></td></tr>
+                <tr><td><strong>Laboratorio 7 y Proyecto Final</strong></td><td>30 %</td><td>04 Dic 2026</td><td><span class="badge b-info">En evaluación</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>Sistema de Registro de Notas · Campus Virtual Universitario · Equipo verificado: {{CLIENT_IP}} ({{CLIENT_MAC}})</footer>
+</body>
+</html>
