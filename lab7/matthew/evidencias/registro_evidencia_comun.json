@@ -1,7 +1,7 @@
 [
   {
     "case_id": "1.1.1 / R1-01",
-    "run_id": "lab7-matthew-phaseA-20261122-0018",
+    "run_id": "lab7-matthew-phaseA-final-20261122-1704",
     "category": "unitaria",
     "version": {
       "sha256_auth_py": "ca9945006a8ccf4d602221ac96fda7a1b5f065068f6e2006f532d3881e88bf48"
@@ -45,14 +45,14 @@
       "clock": "time.monotonic",
       "host": "local-win",
       "unit": "s",
-      "elapsed_suite_s": 0.444
+      "elapsed_suite_s": 1.211
     },
     "result": "PASS",
     "cleanup": "Sin cambios en VNRT (Fase A local)"
   },
   {
     "case_id": "1.1.2 / R1-02",
-    "run_id": "lab7-matthew-phaseA-20261122-0018",
+    "run_id": "lab7-matthew-phaseA-final-20261122-1704",
     "category": "unitaria",
     "version": {
       "sha256_auth_py": "ca9945006a8ccf4d602221ac96fda7a1b5f065068f6e2006f532d3881e88bf48"
@@ -91,14 +91,14 @@
       "clock": "time.monotonic",
       "host": "local-win",
       "unit": "s",
-      "elapsed_suite_s": 0.444
+      "elapsed_suite_s": 1.211
     },
     "result": "PASS",
     "cleanup": "Sin cambios en VNRT (Fase A local)"
   },
   {
     "case_id": "1.2.1-1.2.7 / R1-03",
-    "run_id": "lab7-matthew-phaseA-20261122-0018",
+    "run_id": "lab7-matthew-phaseA-final-20261122-1704",
     "category": "unitaria + integracion simulada SQL",
     "version": {
       "sha256_lockout_py": "74aaac7a122b680552b0b71337748dc2be6c450731a7b7cbf103a90a6749335a"
@@ -139,14 +139,14 @@
       "clock": "reloj inyectado UTC + time.monotonic",
       "host": "local-win",
       "unit": "s",
-      "elapsed_suite_s": 0.444
+      "elapsed_suite_s": 1.211
     },
     "result": "PASS",
     "cleanup": "Sin cambios en VNRT (Fase A local)"
   },
   {
     "case_id": "2.1.1-2.1.6 / R2-01 & R2-02",
-    "run_id": "lab7-matthew-phaseA-20261122-0018",
+    "run_id": "lab7-matthew-phaseA-final-20261122-1704",
     "category": "unitaria + integracion simulada DTI/SQL",
     "version": {
       "sha256_authz_py": "e53a41e688c8d23f55997fed1fb008de4862015dfea5b1700c7e269df1c7a578",
@@ -193,14 +193,14 @@
       "clock": "time.monotonic",
       "host": "local-win",
       "unit": "s",
-      "elapsed_suite_s": 0.444
+      "elapsed_suite_s": 1.211
     },
     "result": "PASS",
     "cleanup": "Sin cambios en VNRT (Fase A local)"
   },
   {
     "case_id": "2.2.1-2.2.5 / R2-03",
-    "run_id": "lab7-matthew-phaseA-20261122-0018",
+    "run_id": "lab7-matthew-phaseA-final-20261122-1704",
     "category": "unitaria + integracion simulada multitabla",
     "version": {
       "sha256_translate_py": "d6b5d1079fd428626d6bada2d003db9de0d017a34a3bb4f4e9ff47e2def8a805"
@@ -248,7 +248,7 @@
       "clock": "time.monotonic",
       "host": "local-win",
       "unit": "s",
-      "elapsed_suite_s": 0.444
+      "elapsed_suite_s": 1.211
     },
     "result": "PASS",
     "cleanup": "Sin cambios en VNRT (Fase A local)"

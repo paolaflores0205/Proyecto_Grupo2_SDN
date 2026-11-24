@@ -1,12 +1,18 @@
 {
-  "run_id": "lab7-matthew-phaseA-20261122-0018",
-  "phase": "Fase A (local, sin modificar VNRT)",
+  "run_id_local_final": "lab7-matthew-phaseA-final-20261122-1704",
+  "run_id_app_prod": "lab7-matthew-phaseB-app-20261122-0558",
+  "run_id_vnrt_live": "lab7-matthew-phaseB-1795327118",
+  "phase": "Fase A + Fase B completadas (22/11/2026)",
   "tests_total": 26,
   "tests_pass": 26,
   "tests_fail": 0,
   "tests_skipped": 0,
+  "elapsed_local_trace_s": 1.211,
+  "elapsed_app_prod_s": 6.744,
   "coverage_tool": "python -m trace --count --summary --missing",
   "coverage_type": "lineas ejecutadas por modulo",
+  "coverage_total_lines_access": 651,
+  "coverage_weighted_pct_access": 95.4,
   "coverage_access_modules": {
     "access.__init__": {
       "lines": 9,
@@ -37,9 +43,10 @@
       "cov_pct": 96
     },
     "access.translate": {
-      "lines": 268,
-      "cov_pct": 98
+      "lines": 271,
+      "cov_pct": 97
     }
   },
-  "note_portal_coverage": "Las pruebas unitarias cubren el paquete compartido access/ (648 lineas ejecutables, ~95.7% ponderado). Los wrappers Flask/daemon de produccion (integracion/vnrt_portal_paso5.py y vnrt_mt_adapter.py) se validaran en vivo contra MySQL/Floodlight/OVS durante la Fase B (ventana VNRT)."
+  "note_authz_diff": "En la corrida final local/entrega se alineo DEFAULT_PERMISSIONS ('administrativo','lms',False) en access/authz.py para reflejar exactamente la matriz real de MySQL sdn_g2.role_permissions. En produccion sdn-r1 siempre lee MySQL real via load_access_matrix_from_rows() y no usa DEFAULT_PERMISSIONS.",
+  "note_portal_coverage": "Las pruebas unitarias cubren el paquete compartido access/ (651 lineas ejecutables, 95.4% ponderado, respaldado por resultados/coverage_trace_r1_r2.txt y evidencias/capturas/cap3_coverage_trace.png). Los wrappers Flask/daemon (vnrt_portal_paso5.py y vnrt_mt_adapter.py) fueron validados en vivo en VNRT durante la Fase B (evidencias/integracion_vnrt_fase_b.json)."
 }
