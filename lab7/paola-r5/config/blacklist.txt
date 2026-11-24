@@ -1,0 +1,10 @@
+# Lista negra de ejemplo para la maqueta del G2 (TEL354 2026-2).
+# Una entrada por linea: IPv4, red CIDR o dominio. Lo que sigue a '#' se ignora.
+# Se usan rangos y dominios reservados para documentacion (RFC 5737 y RFC 2606),
+# asi la demo nunca bloquea una direccion real de internet.
+203.0.113.66          # "zombie" conocido del exterior simulado
+203.0.113.128/26      # bloque de una botnet de ejemplo
+198.51.100.23         # servidor de comando y control de ejemplo
+malware.example       # dominio de descarga de malware
+c2.test               # dominio de comando y control
+phishing.example.net  # dominio de phishing

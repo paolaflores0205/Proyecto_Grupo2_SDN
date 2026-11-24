@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "edge": {
+    "switch_dpid": "00:00:00:00:00:00:00:05",
+    "port": 3
+  },
+  "rule_prefix": "g2-r5",
+  "priority": 32000,
+  "durations": {
+    "base_seconds": 300,
+    "max_seconds": 3600,
+    "escalation_factor": 2,
+    "feed_seconds": 3600,
+    "repeat_memory_seconds": 86400
+  },
+  "watch": {
+    "window_seconds": 60,
+    "threshold": 3
+  },
+  "limits": {
+    "max_active_blocks": 500,
+    "max_new_blocks_per_minute": 30,
+    "max_ips_per_decision": 8,
+    "max_tracked_ips": 50000,
+    "feed_min_prefix_v4": 16,
+    "feed_min_prefix_v6": 32
+  },
+  "internal_networks": [
+    "192.168.10.0/24",
+    "192.168.0.0/24"
+  ],
+  "whitelist": [
+    "192.168.10.254",
+    "192.168.10.10",
+    "192.168.0.0/24",
+    "192.168.3.31",
+    "8.8.4.4"
+  ],
+  "blacklist_file": "blacklist.txt",
+  "incident_log": "/var/lib/sdn-r5/incidents.jsonl",
+  "severity_overrides": {
+    "2013031": {
+      "severity": 3,
+      "motivo": "ET INFO Python-urllib UA: automatizacion legitima (pruebas del LMS). Linea base 15-21 nov: causo el unico bloqueo indebido"
+    },
+    "2002825": {
+      "severity": 3,
+      "motivo": "ET INFO Web Crawl using Curl: monitoreo y pruebas con curl. Linea base: 5 alertas, todas legitimas"
+    }
+  },
+  "events": {
+    "max_age_seconds": 120,
+    "max_future_skew_seconds": 5
+  }
+}
