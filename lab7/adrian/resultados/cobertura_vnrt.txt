@@ -1,0 +1,5 @@
+Ran 14 tests in 0.441s
+OK
+lines   cov%   module   (path)
+  152    79%   coherencia   (/home/ubuntu/lab7/adrian/codigo/coherencia.py)
+  128    28%   r3   (/opt/sdn-p03/r3.py)

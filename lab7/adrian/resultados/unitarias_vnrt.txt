@@ -1,0 +1,19 @@
+test_correct_binding (test_binding.BindingTests.test_correct_binding) ... ok
+test_unknown_port_is_not_verifiable (test_binding.BindingTests.test_unknown_port_is_not_verifiable) ... ok
+test_wrong_ip (test_binding.BindingTests.test_wrong_ip) ... ok
+test_wrong_mac (test_binding.BindingTests.test_wrong_mac) ... ok
+test_wrong_port (test_binding.BindingTests.test_wrong_port) ... ok
+test_changed_rule_fields (test_coherencia.SnapshotTests.test_changed_rule_fields) ... ok
+test_drop_priority_and_tied_permit (test_coherencia.SnapshotTests.test_drop_priority_and_tied_permit) ... ok
+test_equivalent_spellings_and_valid_renewal (test_coherencia.SnapshotTests.test_equivalent_spellings_and_valid_renewal) ... ok
+test_incomplete_capture_or_stale_reference (test_coherencia.SnapshotTests.test_incomplete_capture_or_stale_reference) ... ok
+test_logout_with_matching_revision_and_removed_rules (test_coherencia.SnapshotTests.test_logout_with_matching_revision_and_removed_rules) ... ok
+test_missing_rule (test_coherencia.SnapshotTests.test_missing_rule) ... ok
+test_nonoverlapping_metadata_and_other_table (test_coherencia.SnapshotTests.test_nonoverlapping_metadata_and_other_table) ... ok
+test_revision_or_generation_changes_midcapture (test_coherencia.SnapshotTests.test_revision_or_generation_changes_midcapture) ... ok
+test_unsupported_match_is_reported_as_invalid_input (test_coherencia.SnapshotTests.test_unsupported_match_is_reported_as_invalid_input) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.047s
+
+OK

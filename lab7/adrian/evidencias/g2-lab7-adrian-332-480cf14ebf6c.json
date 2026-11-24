@@ -1,0 +1,109 @@
+{
+  "case": "3.3.2",
+  "utc": "2026-11-23T05:44:35.296410+00:00",
+  "run_id": "g2-lab7-adrian-332-480cf14ebf6c",
+  "status": "PASS",
+  "before": {
+    "utc": "2026-11-23T05:44:28.915590+00:00",
+    "flujo_ensayo": {
+      "status": "connected"
+    },
+    "LMS": {
+      "exit": 0,
+      "http": "200"
+    },
+    "Notas": {
+      "exit": 0,
+      "http": "200"
+    }
+  },
+  "during": {
+    "utc": "2026-11-23T05:44:32.241610+00:00",
+    "flujo_ensayo": {
+      "status": "timeout"
+    },
+    "LMS": {
+      "exit": 0,
+      "http": "200"
+    },
+    "Notas": {
+      "exit": 0,
+      "http": "200"
+    }
+  },
+  "after": {
+    "utc": "2026-11-23T05:44:35.330539+00:00",
+    "flujo_ensayo": {
+      "status": "connected"
+    },
+    "LMS": {
+      "exit": 0,
+      "http": "200"
+    },
+    "Notas": {
+      "exit": 0,
+      "http": "200"
+    }
+  },
+  "controller": [
+    {
+      "utc": "2026-11-23T05:44:32.110146+00:00",
+      "stage": "drop_observed",
+      "rule": {
+        "switch": "00:00:00:00:00:00:00:02",
+        "name": "g2-lab7-adrian-332-480cf14ebf6c",
+        "table": "0",
+        "priority": "41000",
+        "active": "true",
+        "idle_timeout": "0",
+        "hard_timeout": "20",
+        "in_port": "3",
+        "eth_type": "0x0800",
+        "ip_proto": "6",
+        "ipv4_src": "192.168.10.1/32",
+        "ipv4_dst": "192.168.10.101/32",
+        "tcp_src": "28463",
+        "tcp_dst": "443",
+        "actions": ""
+      },
+      "switch_rule": {
+        "version": "OF_13",
+        "cookie": "45035998324177349",
+        "tableId": "0x0",
+        "packetCount": "0",
+        "byteCount": "0",
+        "durationSeconds": "0",
+        "durationNSeconds": "11000000",
+        "priority": "41000",
+        "idleTimeoutSec": "0",
+        "hardTimeoutSec": "20",
+        "flags": "1",
+        "match": {
+          "in_port": "3",
+          "eth_type": "0x0x800",
+          "ip_proto": "0x6",
+          "ipv4_src": "192.168.10.1",
+          "ipv4_dst": "192.168.10.101",
+          "tcp_src": "28463",
+          "tcp_dst": "443"
+        },
+        "instructions": {
+          "none": "drop"
+        }
+      },
+      "api_reply": {
+        "status": "Entry pushed"
+      }
+    },
+    {
+      "utc": "2026-11-23T05:44:35.061587+00:00",
+      "stage": "cleanup",
+      "verified": true,
+      "api_reply": {
+        "status": "Entry g2-lab7-adrian-332-480cf14ebf6c deleted"
+      }
+    }
+  ],
+  "cleanup_verified": true,
+  "error": null
+}

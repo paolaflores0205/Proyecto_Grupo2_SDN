@@ -1,0 +1,217 @@
+{
+  "started_utc": "2026-11-22T23:11:58.674962+00:00",
+  "finished_utc": "2026-11-22T23:11:59.248596+00:00",
+  "source": "Floodlight: estad\u00edsticas de reglas efectivas de sw2",
+  "scope": {
+    "switch": "sw2",
+    "tables": [
+      10,
+      20,
+      30
+    ],
+    "hard_timeout": 0
+  },
+  "version_sha256": {
+    "topology.json": "13a36032f3b221aef4d16897e1e221c43a8a227fca47628ccc79b34141066a5b",
+    "vnrt_mt_red.py": "d655712dca8943a99c8a6c231feea4192edc0410bea4a037c1267c8409f05a25"
+  },
+  "expected": [
+    {
+      "dpid": "00:00:00:00:00:00:00:02",
+      "table": "10",
+      "priority": "0",
+      "match": {},
+      "actions": [],
+      "idle_timeout": "0",
+      "hard_timeout": "0"
+    },
+    {
+      "dpid": "00:00:00:00:00:00:00:02",
+      "table": "20",
+      "priority": "0",
+      "match": {},
+      "actions": [],
+      "idle_timeout": "0",
+      "hard_timeout": "0"
+    },
+    {
+      "dpid": "00:00:00:00:00:00:00:02",
+      "table": "30",
+      "priority": "0",
+      "match": {},
+      "actions": [],
+      "idle_timeout": "0",
+      "hard_timeout": "0"
+    },
+    {
+      "dpid": "00:00:00:00:00:00:00:02",
+      "table": "20",
+      "priority": "400",
+      "match": {
+        "metadata": "0x4000000000000000/0x4000000000000001",
+        "eth_type": "0x0800",
+        "ip_proto": "6",
+        "eth_dst": "fa:16:3e:ce:27:f8",
+        "ipv4_dst": "192.168.10.101/32",
+        "tcp_dst": "443"
+      },
+      "actions": [
+        "goto_table:30"
+      ],
+      "idle_timeout": "0",
+      "hard_timeout": "0"
+    },
+    {
+      "dpid": "00:00:00:00:00:00:00:02",
+      "table": "20",
+      "priority": "400",
+      "match": {
+        "metadata": "0x4000000000000001/0x4000000000000001",
+        "eth_type": "0x0800",
+        "ip_proto": "6",
+        "eth_src": "fa:16:3e:ce:27:f8",
+        "ipv4_src": "192.168.10.101/32",
+        "tcp_src": "443"
+      },
+      "actions": [
+        "goto_table:30"
+      ],
+      "idle_timeout": "0",
+      "hard_timeout": "0"
+    }
+  ],
+  "observed_first": [
+    {
+      "dpid": "00:00:00:00:00:00:00:02",
+      "table": "0xa",
+      "priority": "0",
+      "match": {},
+      "actions": [],
+      "idle_timeout": "0",
+      "hard_timeout": "0"
+    },
+    {
+      "dpid": "00:00:00:00:00:00:00:02",
+      "table": "0x14",
+      "priority": "400",
+      "match": {
+        "metadata": "0x4000000000000001/0x4000000000000001",
+        "eth_src": "fa:16:3e:ce:27:f8",
+        "eth_type": "0x0x800",
+        "ip_proto": "0x6",
+        "ipv4_src": "192.168.10.101",
+        "tcp_src": "443"
+      },
+      "actions": [
+        "goto_table:30"
+      ],
+      "idle_timeout": "0",
+      "hard_timeout": "0"
+    },
+    {
+      "dpid": "00:00:00:00:00:00:00:02",
+      "table": "0x14",
+      "priority": "400",
+      "match": {
+        "metadata": "0x4000000000000000/0x4000000000000001",
+        "eth_dst": "fa:16:3e:ce:27:f8",
+        "eth_type": "0x0x800",
+        "ip_proto": "0x6",
+        "ipv4_dst": "192.168.10.101",
+        "tcp_dst": "443"
+      },
+      "actions": [
+        "goto_table:30"
+      ],
+      "idle_timeout": "0",
+      "hard_timeout": "0"
+    },
+    {
+      "dpid": "00:00:00:00:00:00:00:02",
+      "table": "0x14",
+      "priority": "0",
+      "match": {},
+      "actions": [],
+      "idle_timeout": "0",
+      "hard_timeout": "0"
+    },
+    {
+      "dpid": "00:00:00:00:00:00:00:02",
+      "table": "0x1e",
+      "priority": "0",
+      "match": {},
+      "actions": [],
+      "idle_timeout": "0",
+      "hard_timeout": "0"
+    }
+  ],
+  "observed_second": [
+    {
+      "dpid": "00:00:00:00:00:00:00:02",
+      "table": "0xa",
+      "priority": "0",
+      "match": {},
+      "actions": [],
+      "idle_timeout": "0",
+      "hard_timeout": "0"
+    },
+    {
+      "dpid": "00:00:00:00:00:00:00:02",
+      "table": "0x14",
+      "priority": "400",
+      "match": {
+        "metadata": "0x4000000000000001/0x4000000000000001",
+        "eth_src": "fa:16:3e:ce:27:f8",
+        "eth_type": "0x0x800",
+        "ip_proto": "0x6",
+        "ipv4_src": "192.168.10.101",
+        "tcp_src": "443"
+      },
+      "actions": [
+        "goto_table:30"
+      ],
+      "idle_timeout": "0",
+      "hard_timeout": "0"
+    },
+    {
+      "dpid": "00:00:00:00:00:00:00:02",
+      "table": "0x14",
+      "priority": "400",
+      "match": {
+        "metadata": "0x4000000000000000/0x4000000000000001",
+        "eth_dst": "fa:16:3e:ce:27:f8",
+        "eth_type": "0x0x800",
+        "ip_proto": "0x6",
+        "ipv4_dst": "192.168.10.101",
+        "tcp_dst": "443"
+      },
+      "actions": [
+        "goto_table:30"
+      ],
+      "idle_timeout": "0",
+      "hard_timeout": "0"
+    },
+    {
+      "dpid": "00:00:00:00:00:00:00:02",
+      "table": "0x14",
+      "priority": "0",
+      "match": {},
+      "actions": [],
+      "idle_timeout": "0",
+      "hard_timeout": "0"
+    },
+    {
+      "dpid": "00:00:00:00:00:00:00:02",
+      "table": "0x1e",
+      "priority": "0",
+      "match": {},
+      "actions": [],
+      "idle_timeout": "0",
+      "hard_timeout": "0"
+    }
+  ],
+  "status": "coherente",
+  "missing": [],
+  "unexpected": [],
+  "drop_conflicts": []
+}
